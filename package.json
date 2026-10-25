@@ -1,0 +1,18 @@
+{
+  "name": "nature-pure-extracts",
+  "version": "1.0.0",
+  "description": "Complete local rebuild of Nature Pure Extracts website (https://naturepureextracts.com/)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "node build_website.js"
+  },
+  "keywords": [
+    "nature-pure-extracts",
+    "botanical-extracts",
+    "supercritical-co2-extracts"
+  ],
+  "author": "",
+  "license": "ISC"
+}
