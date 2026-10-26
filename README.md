@@ -2,8 +2,6 @@
 
 A modern, high-performance web application for **Nature Pure Supercritical Extracts**, engineered with **React 19**, **Vite 6**, and **Tailwind CSS v4**.
 
-![Nature Pure Banner](wp-content/uploads/2026/05/WhatsApp-Image-2026-04-13-at-12.05.57-PM.jpeg)
-
 ---
 
 ## 🌿 Overview
