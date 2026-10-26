@@ -39,6 +39,14 @@ function serveWpAssets() {
     },
     configurePreviewServer(server) {
       server.middlewares.use(handler);
+    },
+    closeBundle() {
+      const srcDir = path.resolve(import.meta.dirname, 'wp-content');
+      const distDir = path.resolve(import.meta.dirname, 'dist/wp-content');
+      if (fs.existsSync(srcDir)) {
+        fs.cpSync(srcDir, distDir, { recursive: true });
+        console.log('✓ Successfully copied wp-content static media assets to dist/wp-content');
+      }
     }
   };
 }
