@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-emerald-deep: #0e2e20;
+    --color-emerald-main: #14422b;
+    --color-emerald-light: #256b49;
+    --color-amber-gold: #c69234;
+    --color-amber-soft: #fbf5eb;
+    --color-cream-bg: #fbfbfa;
+    --color-slate-text: #1f2937;
+  }
+
+  body {
+    background-color: #fafbfc;
+    color: #1f2937;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Botanical Mesh Backgrounds */
+.bg-botanical-mesh {
+  background-color: #0b2418;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(37, 107, 73, 0.4) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(198, 146, 52, 0.25) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(16, 185, 129, 0.2) 0px, transparent 60%);
+}
+
+.bg-warm-canvas {
+  background-color: #fbfbf8;
+  background-image: radial-gradient(#e2e8e3 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Glassmorphism helpers */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(20, 66, 43, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(20, 66, 43, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(14, 46, 32, 0.06);
+}
+
+.glass-card-dark {
+  background: rgba(14, 46, 32, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f2;
+}
+::-webkit-scrollbar-thumb {
+  background: #256b49;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #14422b;
+}
+
+/* Smooth Page Transitions */
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}

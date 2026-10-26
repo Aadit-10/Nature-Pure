@@ -1,46 +1,66 @@
-# Dependencies
+# ==============================================================================
+# Nature Pure Extracts — Production Git Ignore
+# ==============================================================================
+
+# Dependencies & Package Managers
 node_modules/
-.pnp
+.pnp/
 .pnp.js
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
 
-# Environment variables & local configuration
+# Production & Bundler Outputs
+/dist/
+/dist-ssr/
+/build/
+/out/
+*.tsbuildinfo
+
+# Tool & Bundler Caches
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+node_modules/.vite/
+.vite/
+
+# Environment Variables, Secrets & Credentials
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 *.env
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+*.credentials
+secrets.*
 
-# Logs
-logs
+# Logs & Debug Output
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# Scraper & staging caches
-public_assets/
-scraped/
-*.tmp
-*.temp
-
-# Production & Build outputs (for future frameworks / bundlers)
-dist/
-build/
-.next/
-out/
-.parcel-cache/
-.cache/
-
-# Runtime data
-pids
+# Runtime data & Process IDs
+pids/
 *.pid
 *.seed
 *.pid.lock
-.eslintcache
 
-# Operating System files
+# Test Coverage & Reports
+coverage/
+*.lcov
+.nyc_output/
+
+# Operating System Files
 .DS_Store
 .DS_Store?
 ._*
@@ -49,14 +69,33 @@ pids
 ehthumbs.db
 Thumbs.db
 [Dd]esktop.ini
+$RECYCLE.BIN/
+Icon?
 
-# IDE & Editor files
+# IDE & Editor Configurations
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swo
+*.swp
+*~
+*.sublime-project
+*.sublime-workspace
 .vscode/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+# Temporary, Crawl & Scratch Staging
+/scraped/
+/public_assets/
+/scratch/
+/dump/
+legacy.html
+*.tmp
+*.temp
+*.bak
+*.backup
+*.orig

@@ -1,0 +1,10 @@
+# robots.txt for Nature Pure Supercritical Extracts
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /tmp/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://naturepureextracts.com/sitemap.xml

@@ -1,18 +1,22 @@
 {
   "name": "nature-pure-extracts",
-  "version": "1.0.0",
-  "description": "Complete local rebuild of Nature Pure Extracts website (https://naturepureextracts.com/)",
-  "main": "server.js",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Modern Redesign of Nature Pure Supercritical Extracts",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "build": "node build_website.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "nature-pure-extracts",
-    "botanical-extracts",
-    "supercritical-co2-extracts"
-  ],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.18.4",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.1.0"
+  }
 }
