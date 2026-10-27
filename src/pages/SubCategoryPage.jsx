@@ -103,10 +103,11 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
         </span>
         <button
           onClick={() => onOpenQuote?.(product.name)}
-          className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 hover:bg-emerald-700 text-emerald-800 hover:text-white transition-all cursor-pointer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366] text-emerald-950 hover:text-white transition-all cursor-pointer border border-[#25D366]/30"
+          title={`Inquire about ${product.name} on WhatsApp`}
         >
-          <FileText className="w-3 h-3" />
-          <span>Inquire</span>
+          <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+          <span>Inquire / CoA</span>
         </button>
       </div>
     </div>
@@ -158,13 +159,6 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
 
             {/* Subcategory Heading */}
             <div className="text-center md:text-left flex-grow">
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: `${subCategory.accent}15`, color: subCategory.accent }}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{parentBrand.name} Division</span>
-              </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 {subCategory.name}
               </h1>
@@ -177,11 +171,12 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
 
               <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-3">
                 <button
-                  onClick={() => onOpenQuote?.(subCategory.name)}
-                  className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all cursor-pointer"
+                  onClick={() => onOpenQuote?.(`${subCategory.name} Technical CoA & Samples`)}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all cursor-pointer"
                   style={{ backgroundColor: subCategory.accent }}
                 >
-                  Request Technical CoA &amp; Samples
+                  <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain brightness-0 invert" />
+                  <span>Request Technical CoA &amp; Samples</span>
                 </button>
                 <button
                   onClick={() => navigate(`/${parentBrand.id}`)}
@@ -198,10 +193,6 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-gray-200">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Verified Batch Production</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                 {subCategory.name} Products
               </h2>
@@ -312,9 +303,6 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
               <section id="natures-flavors-section" className="scroll-mt-28">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-6 border-b-2 border-emerald-600/30">
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-[11px] font-bold uppercase tracking-wider mb-1 border border-emerald-200">
-                      <span>Category 1</span>
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                       Nature's Flavors
                     </h3>
@@ -342,9 +330,6 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
               <section id="natures-fragrance-section" className="scroll-mt-28">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-6 border-b-2 border-sky-600/30">
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-800 text-[11px] font-bold uppercase tracking-wider mb-1 border border-sky-200">
-                      <span>Category 2</span>
-                    </div>
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                       Nature's Fragrance
                     </h3>

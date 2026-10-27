@@ -36,10 +36,6 @@ export default function QualityPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Audited Pharmaceutical Standards</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Quality Assurance &amp; Industry Reputation
           </h1>
@@ -71,24 +67,22 @@ export default function QualityPage({ onOpenQuote }) {
         {/* Official Certifications Showcase */}
         <div id="certifications" className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-12 shadow-xs mb-14">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Accreditations</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Globally Recognized Certifications</h2>
             <p className="text-xs sm:text-sm text-gray-500 mt-2">
               Verified by accredited regulatory bodies for export to North America, Europe, Middle East, and Asia-Pacific.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {certLogos.map((cert) => (
-              <div key={cert.name} className="p-6 rounded-2xl bg-gray-50/80 border border-gray-200/80 text-center flex flex-col items-center justify-between shadow-2xs hover:shadow-md transition-all">
-                <div className="w-24 h-24 mb-4 flex items-center justify-center p-2 bg-white rounded-2xl border border-gray-100 shadow-xs">
+              <div key={cert.name} className="p-3.5 sm:p-6 rounded-2xl bg-gray-50/80 border border-gray-200/80 text-center flex flex-col items-center justify-between shadow-2xs hover:shadow-md transition-all">
+                <div className="w-16 h-16 sm:w-24 sm:h-24 mb-3 sm:mb-4 flex items-center justify-center p-2 bg-white rounded-xl sm:rounded-2xl border border-gray-100 shadow-xs">
                   <img src={cert.image} alt={cert.name} className="max-h-full max-w-full object-contain" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-sm text-gray-900">{cert.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1.5 leading-relaxed">{cert.desc}</p>
+                  <h3 className="font-bold text-xs sm:text-sm text-gray-900 leading-tight">{cert.name}</h3>
                 </div>
-                <span className="mt-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">
+                <span className="mt-3 sm:mt-4 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800">
                   Verified Active
                 </span>
               </div>
@@ -99,7 +93,6 @@ export default function QualityPage({ onOpenQuote }) {
         {/* Quality FAQs Accordion */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-12 shadow-xs mb-14">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Frequently Asked Questions</span>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Quality Assurance &amp; Technical FAQs</h2>
           </div>
 
@@ -135,10 +128,11 @@ export default function QualityPage({ onOpenQuote }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenQuote('Certificate of Analysis (CoA) Request')}
-            className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
+            onClick={() => onOpenQuote('Lot-Specific Certificate of Analysis (CoA) Request')}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
           >
-            Request Batch CoA &amp; Sample
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+            <span>Request Batch CoA &amp; Samples</span>
           </button>
         </div>
       </div>

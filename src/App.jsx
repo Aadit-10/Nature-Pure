@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import OwnerSection from './components/OwnerSection';
+import ManagementSection from './components/ManagementSection';
+import AboutUsSection from './components/AboutUsSection';
 import SubBrandsSection from './components/SubBrandsSection';
-import ProductCatalog from './components/ProductCatalog';
 import SolutionsSection from './components/SolutionsSection';
-import TechExplainer from './components/TechExplainer';
+import MapSection from './components/MapSection';
 import InfrastructureSection from './components/InfrastructureSection';
-import LeadershipSection from './components/LeadershipSection';
 import HeritageTimeline from './components/HeritageTimeline';
+import PeopleWhoKnowUsBetter from './components/PeopleWhoKnowUsBetter';
 import CertificationsSection from './components/CertificationsSection';
+import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
-import InquiryModal from './components/InquiryModal';
+import { openWhatsApp } from './utils/whatsapp';
 
 // Dedicated Standalone Pages
 import BrandPage from './pages/BrandPage';
@@ -32,21 +35,31 @@ import ContactPage from './pages/ContactPage';
 
 import { useNavigation } from './context/NavigationContext';
 import { subCategoriesData } from './data/subCategories';
-import { MessageSquare } from 'lucide-react';
 
 export default function App() {
   const { currentPath, navigate } = useNavigation();
-  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
-  const [prefilledProduct, setPrefilledProduct] = useState('');
-  const [catalogSubBrand, setCatalogSubBrand] = useState('all');
 
-  const handleOpenQuote = (productName = '') => {
-    setPrefilledProduct(productName);
-    setIsQuoteOpen(true);
+  const handleOpenQuote = (productOrSubject = '') => {
+    let message = '';
+    if (!productOrSubject) {
+      message =
+        'Hi Nature Pure Extracts! I would like to request product samples, pricing details, and Certificates of Analysis (CoA).';
+    } else if (
+      productOrSubject.toLowerCase().includes('inquiry') ||
+      productOrSubject.toLowerCase().includes('request') ||
+      productOrSubject.toLowerCase().includes('consultation') ||
+      productOrSubject.toLowerCase().includes('division') ||
+      productOrSubject.toLowerCase().includes('idea')
+    ) {
+      message = `Hi Nature Pure Extracts! I would like to inquire regarding ${productOrSubject}. Could you provide technical specifications and commercial details?`;
+    } else {
+      message = `Hi Nature Pure Extracts! I am interested in ${productOrSubject}. Could you share sample availability, CoA, and pricing parameters?`;
+    }
+    openWhatsApp(message);
   };
 
   const handleExploreCatalog = () => {
-    navigate('/products');
+    navigate('/brands');
   };
 
   const handleExploreTech = () => {
@@ -147,39 +160,45 @@ export default function App() {
     // 8. Default: Complete Homepage
     return (
       <>
-        {/* Hero Section */}
+        {/* 1. Hero Section */}
         <Hero
           onOpenQuote={handleOpenQuote}
           onExploreCatalog={handleExploreCatalog}
           onExploreTech={handleExploreTech}
         />
 
-        {/* Curated Brands Showcase (with compact collapsible dropdown and always-visible explore button) */}
-        <SubBrandsSection />
+        {/* 2. About the Owners (Mr. N. T. Kuruvilla & Founding Heritage) */}
+        <OwnerSection />
 
-        {/* Complete Interactive Product Catalog (default 9 items + Load More) */}
-        <ProductCatalog
-          selectedSubBrand={catalogSubBrand}
-          onOpenQuote={handleOpenQuote}
-        />
+        {/* 3. About the Management (Executive Leadership, Technology & Direction) */}
+        <ManagementSection />
 
-        {/* Industrial Solutions: Bulk Extraction, Contract Manufacturing & Lab */}
-        <SolutionsSection onOpenQuote={handleOpenQuote} />
+        {/* 4. About Us: Nature Pure Extracts Profile, Facility & Metrics */}
+        <AboutUsSection />
 
-        {/* Supercritical CO2 Science & Technology Benchmark */}
-        <TechExplainer />
-
-        {/* Manufacturing Infrastructure & Analytical Lab */}
-        <InfrastructureSection />
-
-        {/* Executive Leadership & Stewardship */}
-        <LeadershipSection />
-
-        {/* 50-Year Heritage Milestones Timeline */}
+        {/* 5. Our Journey (Horizontal sideways interactive timeline - 1973 to Present) */}
         <HeritageTimeline />
 
-        {/* Global Certifications & Frequently Asked Questions */}
+        {/* 6. Our Curated Brands Showcase */}
+        <SubBrandsSection />
+
+        {/* 7. Global Certifications & Quality Assurance (Authentic Seals + FAQ) */}
         <CertificationsSection />
+
+        {/* 8. Industrial Solutions: Bulk Extraction, Contract Manufacturing & Lab */}
+        <SolutionsSection onOpenQuote={handleOpenQuote} />
+
+        {/* 9. Manufacturing Infrastructure & Analytical Lab */}
+        <InfrastructureSection />
+
+        {/* 10. People Who Know Us Better: Valued Partner & Client Logos */}
+        <PeopleWhoKnowUsBetter />
+
+        {/* 11. Dedicated Facility Map Section */}
+        <MapSection />
+
+        {/* 12. Frequently Asked Questions (At the Bottom) */}
+        <FaqSection />
       </>
     );
   };
@@ -199,23 +218,20 @@ export default function App() {
       {/* Corporate Footer */}
       <Footer onOpenQuote={handleOpenQuote} />
 
-      {/* Commercial Inquiry & Technical Sample Modal */}
-      <InquiryModal
-        isOpen={isQuoteOpen}
-        onClose={() => setIsQuoteOpen(false)}
-        prefilledProduct={prefilledProduct}
-      />
-
-      {/* Floating WhatsApp Action Pill */}
+      {/* Floating WhatsApp Action Button (Symbol only) */}
       <aside aria-label="Floating WhatsApp" className="fixed bottom-6 right-6 z-40 group">
         <a
           href="https://wa.me/919567889001?text=Hi%20Nature%20Pure!%20I%20would%20like%20to%20inquire%20about%20your%20extracts."
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2.5 bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
+          className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all p-3.5 border-2 border-white/80"
+          title="Chat on WhatsApp"
         >
-          <MessageSquare className="w-5 h-5 fill-white/20" />
-          <span className="text-xs font-bold tracking-wide">Inquire on WhatsApp</span>
+          <img
+            src="/whatsapp-icon.png"
+            alt="WhatsApp"
+            className="w-full h-full object-contain brightness-0 invert"
+          />
         </a>
       </aside>
     </div>

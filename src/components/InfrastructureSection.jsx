@@ -1,5 +1,5 @@
 import React from 'react';
-import { Factory, Snowflake, Microscope, Gauge, Leaf, MapPin } from 'lucide-react';
+import { Factory, Snowflake, Microscope, Gauge, Leaf } from 'lucide-react';
 
 export default function InfrastructureSection() {
   const facilities = [
@@ -38,10 +38,6 @@ export default function InfrastructureSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200">
-            <Factory className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Industrial Footprint</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Advanced Manufacturing Infrastructure
           </h2>
@@ -51,68 +47,40 @@ export default function InfrastructureSection() {
         </div>
 
         {/* 4 Infrastructure Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 mb-12">
           {facilities.map((fac) => {
             const Icon = fac.icon;
             return (
               <div
                 key={fac.title}
-                className="bg-white p-8 rounded-3xl border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-white p-3.5 sm:p-7 rounded-2xl sm:rounded-3xl border border-gray-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                      <Icon className="w-6 h-6" />
+                  <div className="mb-3 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-gray-100 text-gray-700">
-                      {fac.badge}
-                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  <h3 className="text-sm sm:text-xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors leading-tight">
                     {fac.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1.5 sm:mt-3 leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {fac.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                <div className="mt-3 sm:mt-6 pt-2.5 sm:pt-4 border-t border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between text-[10px] sm:text-xs gap-1 sm:gap-0">
+                  <span className="text-[10px] sm:text-xs font-semibold text-gray-400 uppercase tracking-wider">
                     Core Capability
                   </span>
-                  <strong className="text-xs font-bold text-emerald-700">
+                  <strong className="text-[11px] sm:text-xs font-bold text-emerald-700">
                     {fac.stats}
                   </strong>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Location Banner */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0">
-              <MapPin className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="text-base font-bold text-gray-900">
-                Facility &amp; R&amp;D Center: Kinfra Industrial Park
-              </h4>
-              <p className="text-xs text-gray-600 mt-0.5">
-                Plot No. 48, Thiruvalla - Mallappally Rd, Kunnamthanam, Thiruvalla, Kerala 689581, India
-              </p>
-            </div>
-          </div>
-          <a
-            href="https://maps.google.com/maps?q=Nature%20Pure%20Supercritical%20Extracts%20Pvt.%20Ltd.%2C%20Plot%20No.%2048%2C%20Kinfra%20Industrial%20Park%2C%20Thiruvalla%20-%20Mallappally%20Rd%2C%20Kunnamthanam%2C%20Thiruvalla%2C%20Kerala%20689581"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full text-xs font-bold text-emerald-900 bg-emerald-100 hover:bg-emerald-200 transition-colors whitespace-nowrap flex-shrink-0"
-          >
-            Open in Google Maps
-          </a>
         </div>
       </div>
     </section>

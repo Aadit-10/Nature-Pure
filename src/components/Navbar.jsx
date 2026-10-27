@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, ChevronRight, MessageSquare, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
 import { subBrands } from '../data/catalog';
 import { subCategoriesData } from '../data/subCategories';
 import { useNavigation } from '../context/NavigationContext';
@@ -76,27 +76,27 @@ export default function Navbar({ onOpenQuote }) {
   const getNavButtonClass = (isActive) => {
     if (isSolidHeader) {
       return isActive
-        ? 'text-emerald-800 bg-emerald-50/90 font-bold border border-emerald-300/80 shadow-2xs'
-        : 'text-gray-700 hover:text-emerald-700 hover:bg-gray-50';
+        ? 'bg-emerald-800 text-white font-extrabold shadow-sm border border-emerald-900 active:scale-95'
+        : 'bg-[#f4f7f5] text-gray-800 hover:text-emerald-950 hover:bg-emerald-100/80 border border-emerald-900/10 hover:border-emerald-300/80 shadow-2xs font-bold active:scale-95';
     } else {
       return isActive
-        ? 'text-emerald-300 bg-white/20 font-bold border border-white/30 shadow-2xs'
-        : 'text-gray-100 hover:text-emerald-300 hover:bg-white/5';
+        ? 'bg-emerald-600/95 text-white font-extrabold shadow-sm border border-emerald-400 active:scale-95'
+        : 'bg-white/10 text-white hover:bg-white/20 hover:text-emerald-200 border border-white/20 hover:border-white/40 shadow-2xs font-bold backdrop-blur-md active:scale-95';
     }
   };
 
   const getDropdownItemClass = (pathSlug) => {
     const isCurrent = cleanPath === pathSlug.replace(/^\//, '').toLowerCase();
     return isCurrent
-      ? 'w-full text-left px-3 py-2.5 rounded-xl bg-emerald-50 text-emerald-950 font-bold border-l-4 border-emerald-600 transition-colors cursor-pointer flex flex-col shadow-2xs'
-      : 'w-full text-left px-3 py-2.5 rounded-xl hover:bg-emerald-50/50 text-gray-700 hover:text-emerald-800 font-medium transition-colors cursor-pointer flex flex-col';
+      ? 'w-full text-left px-3.5 py-2.5 rounded-xl bg-emerald-800 text-white font-bold border border-emerald-900 transition-all cursor-pointer flex items-center justify-between shadow-xs active:scale-[0.98]'
+      : 'w-full text-left px-3.5 py-2.5 rounded-xl bg-gray-50/80 hover:bg-emerald-50 text-gray-800 hover:text-emerald-900 font-semibold border border-gray-100 hover:border-emerald-200 transition-all cursor-pointer flex items-center justify-between active:scale-[0.98]';
   };
 
   const getMobileItemClass = (pathSlug) => {
     const isCurrent = cleanPath === pathSlug.replace(/^\//, '').toLowerCase();
     return isCurrent
-      ? 'block py-1.5 px-2.5 rounded-lg bg-emerald-100/90 text-emerald-950 font-bold border-l-2 border-emerald-600 w-full text-left transition-colors'
-      : 'block py-1.5 px-2.5 rounded-lg hover:text-emerald-700 hover:bg-gray-100/70 font-medium w-full text-left transition-colors text-gray-700';
+      ? 'block w-full text-left py-2 px-3 rounded-xl bg-emerald-800 text-white font-bold border border-emerald-900 transition-all shadow-2xs'
+      : 'block w-full text-left py-2 px-3 rounded-xl bg-white hover:bg-emerald-50/80 text-gray-700 hover:text-emerald-900 font-semibold border border-gray-200/70 hover:border-emerald-300 transition-all shadow-2xs active:scale-[0.98]';
   };
 
   return (
@@ -136,19 +136,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/about-us')}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                   isAboutActive
                 )}`}
               >
                 <span>About Us</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'about' ? 'rotate-180 text-emerald-500' : isAboutActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
-                }`} />
+                  activeDropdown === 'about' ? 'rotate-180' : ''
+                } ${isAboutActive ? 'opacity-100' : 'opacity-60'}`} />
               </button>
 
               {activeDropdown === 'about' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
                     <button
                       onClick={() => handleNavClick('/about-us')}
                       className={getDropdownItemClass('/about-us')}
@@ -197,14 +197,14 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/brands')}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                   isProductsActive
                 )}`}
               >
                 <span>Products</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'products' ? 'rotate-180 text-emerald-500' : isProductsActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
-                }`} />
+                  activeDropdown === 'products' ? 'rotate-180' : ''
+                } ${isProductsActive ? 'opacity-100' : 'opacity-60'}`} />
               </button>
 
               {activeDropdown === 'products' && (
@@ -354,19 +354,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/quality')}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                   isQualityActive
                 )}`}
               >
                 <span>Quality</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'quality' ? 'rotate-180 text-emerald-500' : isQualityActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
-                }`} />
+                  activeDropdown === 'quality' ? 'rotate-180' : ''
+                } ${isQualityActive ? 'opacity-100' : 'opacity-60'}`} />
               </button>
 
               {activeDropdown === 'quality' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
                     <button
                       onClick={() => handleNavClick('/quality')}
                       className={getDropdownItemClass('/quality')}
@@ -394,19 +394,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/solutions')}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                   isSolutionsActive
                 )}`}
               >
                 <span>Solutions</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'solutions' ? 'rotate-180 text-emerald-500' : isSolutionsActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
-                }`} />
+                  activeDropdown === 'solutions' ? 'rotate-180' : ''
+                } ${isSolutionsActive ? 'opacity-100' : 'opacity-60'}`} />
               </button>
 
               {activeDropdown === 'solutions' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
                     <button
                       onClick={() => handleNavClick('/solutions')}
                       className={getDropdownItemClass('/solutions')}
@@ -441,19 +441,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/rd')}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                   isRdActive
                 )}`}
               >
                 <span>R&amp;D</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'rd' ? 'rotate-180 text-emerald-500' : isRdActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
-                }`} />
+                  activeDropdown === 'rd' ? 'rotate-180' : ''
+                } ${isRdActive ? 'opacity-100' : 'opacity-60'}`} />
               </button>
 
               {activeDropdown === 'rd' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
                     <button
                       onClick={() => handleNavClick('/rd')}
                       className={getDropdownItemClass('/rd')}
@@ -483,7 +483,7 @@ export default function Navbar({ onOpenQuote }) {
             {/* 6. Contact Us */}
             <button
               onClick={() => handleNavClick('/contact-us')}
-              className={`px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
+              className={`px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
                 isContactActive
               )}`}
             >
@@ -491,271 +491,259 @@ export default function Navbar({ onOpenQuote }) {
             </button>
           </nav>
 
-          {/* Action Buttons: WhatsApp + Request Quote */}
+          {/* Action Button: Instant WhatsApp Inquiry */}
           <div className="hidden sm:flex items-center gap-2.5">
-            <a
-              href="https://wa.me/919567889001?text=Hi%20Nature%20Pure!%20I%20would%20like%20to%20inquire%20about%20your%20extracts."
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold transition-all ${
+            <button
+              onClick={() => onOpenQuote('Request Sample, Pricing & CoA')}
+              className={`inline-flex items-center gap-2 px-4.5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 cursor-pointer shadow-md ${
                 isSolidHeader
-                  ? 'text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200'
-                  : 'text-emerald-200 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-400/40 backdrop-blur-md'
+                  ? 'text-white bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-600 hover:to-teal-700'
+                  : 'text-emerald-950 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300'
               }`}
               title="Chat on WhatsApp"
             >
-              <MessageSquare className="w-3.5 h-3.5 text-emerald-500 fill-emerald-500/30" />
-              <span>WhatsApp</span>
-            </a>
-
-            <button
-              onClick={() => onOpenQuote()}
-              className={`inline-flex items-center gap-2 px-4.5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all transform hover:-translate-y-0.5 cursor-pointer shadow-md ${
-                isSolidHeader
-                  ? 'text-white bg-gradient-to-r from-emerald-700 to-teal-800 hover:from-emerald-600 hover:to-teal-700'
-                  : 'text-emerald-950 bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 shadow-emerald-900/40'
-              }`}
-            >
-              <span>Request Quote / Sample</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <img
+                src="/whatsapp-icon.png"
+                alt="WhatsApp"
+                className={`w-4 h-4 object-contain ${isSolidHeader ? 'brightness-0 invert' : ''}`}
+              />
+              <span>Inquire Now</span>
             </button>
           </div>
 
-          {/* Mobile Menu Trigger */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile Menu Toggle - Distinct Tactile Button Format */}
+          <div className="flex lg:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-xl transition-colors cursor-pointer ${
-                isSolidHeader ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+              className={`px-3 py-1.5 rounded-xl flex items-center gap-1.5 text-xs font-bold transition-all shadow-xs active:scale-95 cursor-pointer border ${
+                isSolidHeader
+                  ? 'bg-emerald-800 text-white border-emerald-900 hover:bg-emerald-900'
+                  : 'bg-white/95 text-gray-900 border-white/40 hover:bg-white shadow-md'
               }`}
-              aria-label="Toggle Navigation"
+              aria-label={mobileMenuOpen ? 'Close Navigation' : 'Open Navigation'}
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <>
+                  <X className={`w-4 h-4 ${isSolidHeader ? 'text-emerald-200' : 'text-emerald-800'}`} />
+                  <span>Close</span>
+                </>
+              ) : (
+                <>
+                  <Menu className={`w-4 h-4 ${isSolidHeader ? 'text-emerald-200' : 'text-emerald-800'}`} />
+                  <span>Menu</span>
+                </>
+              )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer - Unified Single Button with Dropdown Inside */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white text-gray-900 border-t border-gray-200 px-4 pt-3 pb-6 space-y-2 shadow-2xl max-h-[85vh] overflow-y-auto">
-          {/* About Us Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'about' ? null : 'about')}
-              className={`w-full flex items-center justify-between py-2.5 px-2 rounded-lg text-left text-sm font-semibold transition-colors border-b border-gray-100 ${
-                isAboutActive
-                  ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                  : 'text-gray-900 hover:text-emerald-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
+        <div className="lg:hidden bg-white text-gray-900 border-t border-gray-100 px-4 pt-4 pb-8 shadow-xl max-h-[85vh] overflow-y-auto animate-in fade-in duration-200">
+          <nav className="space-y-2">
+            {/* 1. About Us */}
+            <div>
+              <button
+                onClick={() => setMobileExpandedSection(mobileExpandedSection === 'about' ? null : 'about')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold flex items-center justify-between border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isAboutActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
                 <span>About Us</span>
-                {isAboutActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === 'about' ? 'rotate-180 text-emerald-600' : isAboutActive ? 'text-emerald-600' : ''}`} />
-            </button>
-            {mobileExpandedSection === 'about' && (
-              <div className="pl-2 py-2 space-y-1 bg-gray-50/90 rounded-xl mt-1 text-xs text-gray-600 border border-gray-100">
-                <button onClick={() => handleNavClick('/about-us')} className={getMobileItemClass('/about-us')}>About Us Overview</button>
-                <button onClick={() => handleNavClick('/our-story')} className={getMobileItemClass('/our-story')}>Our Story</button>
-                <button onClick={() => handleNavClick('/infrastructure')} className={getMobileItemClass('/infrastructure')}>Infrastructure</button>
-                <button onClick={() => handleNavClick('/mission-vision')} className={getMobileItemClass('/mission-vision')}>Mission &amp; Vision</button>
-                <button onClick={() => handleNavClick('/leadership')} className={getMobileItemClass('/leadership')}>Leadership</button>
-              </div>
-            )}
-          </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpandedSection === 'about' ? 'rotate-180' : ''} ${isAboutActive ? 'text-white' : 'text-gray-500'}`} />
+              </button>
 
-          {/* Products Accordion with 4 Brands and their Subcategories */}
-          <div>
-            <button
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'products' ? null : 'products')}
-              className={`w-full flex items-center justify-between py-2.5 px-2 rounded-lg text-left text-sm font-semibold transition-colors border-b border-gray-100 ${
-                isProductsActive
-                  ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                  : 'text-gray-900 hover:text-emerald-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
-                <span>Products &amp; Subcategories</span>
-                {isProductsActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === 'products' ? 'rotate-180 text-emerald-600' : isProductsActive ? 'text-emerald-600' : ''}`} />
-            </button>
-            {mobileExpandedSection === 'products' && (
-              <div className="pl-2 py-2 space-y-2.5 bg-gray-50/90 rounded-xl mt-1 text-xs border border-gray-100">
-                <button
-                  onClick={() => handleNavClick('/brands')}
-                  className={`w-full text-left py-2 px-3 rounded-lg font-bold flex items-center justify-between transition-colors ${
-                    cleanPath === 'brands' || cleanPath === 'products' || cleanPath === 'all-brands'
-                      ? 'bg-emerald-700 text-white shadow-xs'
-                      : 'bg-emerald-50 text-emerald-800 hover:bg-emerald-100'
-                  }`}
-                >
-                  <span>All Brands &amp; 220+ Extracts Hub</span>
-                  <span>→</span>
-                </button>
-                {subBrands.map((b) => {
-                  const isThisBrandActive = cleanPath === b.id;
-                  return (
-                    <div key={b.id} className="border-b border-gray-200/60 pb-2">
-                      <div className="flex items-center justify-between pr-2">
+              {mobileExpandedSection === 'about' && (
+                <div className="p-2 mt-1 space-y-1.5 bg-gray-50/70 rounded-xl border border-gray-100 text-xs">
+                  <button onClick={() => handleNavClick('/about-us')} className={getMobileItemClass('/about-us')}>About Us Overview</button>
+                  <button onClick={() => handleNavClick('/our-story')} className={getMobileItemClass('/our-story')}>Our Story</button>
+                  <button onClick={() => handleNavClick('/infrastructure')} className={getMobileItemClass('/infrastructure')}>Advanced Infrastructure</button>
+                  <button onClick={() => handleNavClick('/mission-vision')} className={getMobileItemClass('/mission-vision')}>Mission &amp; Vision</button>
+                  <button onClick={() => handleNavClick('/leadership')} className={getMobileItemClass('/leadership')}>Executive Leadership</button>
+                </div>
+              )}
+            </div>
+
+            {/* 2. Products & Brands */}
+            <div>
+              <button
+                onClick={() => setMobileExpandedSection(mobileExpandedSection === 'products' ? null : 'products')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold flex items-center justify-between border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isProductsActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
+                <span>Products &amp; Brands</span>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpandedSection === 'products' ? 'rotate-180' : ''} ${isProductsActive ? 'text-white' : 'text-gray-500'}`} />
+              </button>
+
+              {mobileExpandedSection === 'products' && (
+                <div className="p-2 mt-1 space-y-2 bg-gray-50/70 rounded-xl border border-gray-100 text-xs">
+                  <button
+                    onClick={() => handleNavClick('/brands')}
+                    className="block w-full text-left py-2 px-3 rounded-xl bg-emerald-800 text-white font-bold transition-all shadow-2xs"
+                  >
+                    All Brands &amp; 220+ Extracts Hub &rarr;
+                  </button>
+
+                  {subBrands.map((b) => {
+                    const isBrandActive = cleanPath === b.id;
+                    const isBrandOpen = mobileExpandedBrand === b.id;
+
+                    return (
+                      <div key={b.id} className="pt-1">
                         <button
-                          onClick={() => handleNavClick(`/${b.id}`)}
-                          className={`font-bold text-left py-1 px-1.5 rounded transition-colors ${
-                            isThisBrandActive
-                              ? 'text-emerald-800 bg-emerald-100/80 font-extrabold'
-                              : 'text-gray-900 hover:text-emerald-700'
+                          onClick={() => setMobileExpandedBrand(isBrandOpen ? null : b.id)}
+                          className={`w-full text-left text-xs font-bold py-1.5 px-2.5 rounded-lg border transition-all flex items-center justify-between cursor-pointer ${
+                            isBrandActive
+                              ? 'bg-emerald-100/90 text-emerald-950 border-emerald-400 font-extrabold'
+                              : 'bg-white text-gray-800 hover:text-emerald-900 border-gray-200/80 hover:bg-emerald-50/50'
                           }`}
                         >
-                          {b.name} Page →
+                          <span>{b.name}</span>
+                          <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isBrandOpen ? 'rotate-180 text-emerald-700' : 'text-gray-400'}`} />
                         </button>
-                        <button
-                          onClick={() => setMobileExpandedBrand(mobileExpandedBrand === b.id ? null : b.id)}
-                          className="p-1 text-gray-400 hover:text-emerald-600"
-                        >
-                          <ChevronDown className={`w-3.5 h-3.5 transition-transform ${mobileExpandedBrand === b.id ? 'rotate-180 text-emerald-600' : ''}`} />
-                        </button>
+
+                        {isBrandOpen && (
+                          <div className="pl-3 pt-1.5 space-y-1 mt-1 border-l-2 border-emerald-400">
+                            <button
+                              onClick={() => handleNavClick(`/${b.id}`)}
+                              className="block w-full text-left py-1.5 px-2.5 rounded-lg text-xs font-bold bg-emerald-50 text-emerald-900 border border-emerald-200/80 hover:bg-emerald-100 transition-colors"
+                            >
+                              Explore {b.name} Page &rarr;
+                            </button>
+                            {subCategoriesData
+                              .filter((s) => s.subBrandId === b.id)
+                              .map((sub) => {
+                                const isSubActive =
+                                  cleanPath === sub.slug.toLowerCase() ||
+                                  (sub.slug === 'natural-flavors-and-fragrance' &&
+                                    ['natural-flavors', 'fragrance', 'flavors', 'flavors-and-fragrance'].includes(cleanPath));
+                                return (
+                                  <button
+                                    key={sub.slug}
+                                    onClick={() => handleNavClick(`/${sub.slug}`)}
+                                    className={`block w-full text-left py-1.5 px-2.5 rounded-lg text-xs font-semibold border transition-all ${
+                                      isSubActive
+                                        ? 'bg-emerald-800 text-white border-emerald-900 font-bold'
+                                        : 'bg-white text-gray-600 hover:text-emerald-900 border-gray-200/60 hover:bg-emerald-50/40'
+                                    }`}
+                                  >
+                                    &bull; {sub.name}
+                                  </button>
+                                );
+                              })}
+                          </div>
+                        )}
                       </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
 
-                      {mobileExpandedBrand === b.id && (
-                        <div className="pl-3 mt-1.5 space-y-1 border-l-2 border-emerald-500">
-                          {subCategoriesData
-                            .filter((s) => s.subBrandId === b.id)
-                            .map((sub) => {
-                              const isSubActive =
-                                cleanPath === sub.slug.toLowerCase() ||
-                                (sub.slug === 'natural-flavors-and-fragrance' &&
-                                  ['natural-flavors', 'fragrance', 'flavors', 'flavors-and-fragrance'].includes(cleanPath));
-                              return (
-                                <button
-                                  key={sub.slug}
-                                  onClick={() => handleNavClick(`/${sub.slug}`)}
-                                  className={`block py-1 px-1.5 rounded text-left w-full text-xs font-medium transition-colors ${
-                                    isSubActive
-                                      ? 'bg-emerald-100 text-emerald-950 font-bold border-l-2 border-emerald-600'
-                                      : 'text-gray-600 hover:text-emerald-700 hover:bg-gray-100/60'
-                                  }`}
-                                >
-                                  • {sub.name}
-                                </button>
-                              );
-                            })}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-
-          {/* Quality Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'quality' ? null : 'quality')}
-              className={`w-full flex items-center justify-between py-2.5 px-2 rounded-lg text-left text-sm font-semibold transition-colors border-b border-gray-100 ${
-                isQualityActive
-                  ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                  : 'text-gray-900 hover:text-emerald-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
+            {/* 3. Quality & Assurance */}
+            <div>
+              <button
+                onClick={() => setMobileExpandedSection(mobileExpandedSection === 'quality' ? null : 'quality')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold flex items-center justify-between border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isQualityActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
                 <span>Quality &amp; Certifications</span>
-                {isQualityActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === 'quality' ? 'rotate-180 text-emerald-600' : isQualityActive ? 'text-emerald-600' : ''}`} />
-            </button>
-            {mobileExpandedSection === 'quality' && (
-              <div className="pl-2 py-2 space-y-1 bg-gray-50/90 rounded-xl mt-1 text-xs text-gray-600 border border-gray-100">
-                <button onClick={() => handleNavClick('/quality')} className={getMobileItemClass('/quality')}>Quality Overview</button>
-                <button onClick={() => handleNavClick('/certifications')} className={getMobileItemClass('/certifications')}>Certifications (Organic, Halal, Kosher, FSSAI)</button>
-              </div>
-            )}
-          </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpandedSection === 'quality' ? 'rotate-180' : ''} ${isQualityActive ? 'text-white' : 'text-gray-500'}`} />
+              </button>
 
-          {/* Solutions Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'solutions' ? null : 'solutions')}
-              className={`w-full flex items-center justify-between py-2.5 px-2 rounded-lg text-left text-sm font-semibold transition-colors border-b border-gray-100 ${
-                isSolutionsActive
-                  ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                  : 'text-gray-900 hover:text-emerald-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
+              {mobileExpandedSection === 'quality' && (
+                <div className="p-2 mt-1 space-y-1.5 bg-gray-50/70 rounded-xl border border-gray-100 text-xs">
+                  <button onClick={() => handleNavClick('/quality')} className={getMobileItemClass('/quality')}>Quality Assurance Overview</button>
+                  <button onClick={() => handleNavClick('/certifications')} className={getMobileItemClass('/certifications')}>Global Certifications (Organic, Halal, Kosher)</button>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Solutions */}
+            <div>
+              <button
+                onClick={() => setMobileExpandedSection(mobileExpandedSection === 'solutions' ? null : 'solutions')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold flex items-center justify-between border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isSolutionsActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
                 <span>Solutions</span>
-                {isSolutionsActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === 'solutions' ? 'rotate-180 text-emerald-600' : isSolutionsActive ? 'text-emerald-600' : ''}`} />
-            </button>
-            {mobileExpandedSection === 'solutions' && (
-              <div className="pl-2 py-2 space-y-1 bg-gray-50/90 rounded-xl mt-1 text-xs text-gray-600 border border-gray-100">
-                <button onClick={() => handleNavClick('/solutions')} className={getMobileItemClass('/solutions')}>Solutions Overview</button>
-                <button onClick={() => handleNavClick('/bulk-extraction')} className={getMobileItemClass('/bulk-extraction')}>Bulk Extraction (150 MT SCFE)</button>
-                <button onClick={() => handleNavClick('/contract-manufacturing')} className={getMobileItemClass('/contract-manufacturing')}>Contract Manufacturing</button>
-              </div>
-            )}
-          </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpandedSection === 'solutions' ? 'rotate-180' : ''} ${isSolutionsActive ? 'text-white' : 'text-gray-500'}`} />
+              </button>
 
-          {/* R&D Accordion */}
-          <div>
-            <button
-              onClick={() => setMobileExpandedSection(mobileExpandedSection === 'rd' ? null : 'rd')}
-              className={`w-full flex items-center justify-between py-2.5 px-2 rounded-lg text-left text-sm font-semibold transition-colors border-b border-gray-100 ${
-                isRdActive
-                  ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                  : 'text-gray-900 hover:text-emerald-700'
-              }`}
-            >
-              <span className="flex items-center gap-2">
+              {mobileExpandedSection === 'solutions' && (
+                <div className="p-2 mt-1 space-y-1.5 bg-gray-50/70 rounded-xl border border-gray-100 text-xs">
+                  <button onClick={() => handleNavClick('/solutions')} className={getMobileItemClass('/solutions')}>Solutions Overview</button>
+                  <button onClick={() => handleNavClick('/bulk-extraction')} className={getMobileItemClass('/bulk-extraction')}>Bulk Extraction (150 MT SCFE)</button>
+                  <button onClick={() => handleNavClick('/contract-manufacturing')} className={getMobileItemClass('/contract-manufacturing')}>Contract Manufacturing &amp; Tolling</button>
+                </div>
+              )}
+            </div>
+
+            {/* 5. R&D & Technology */}
+            <div>
+              <button
+                onClick={() => setMobileExpandedSection(mobileExpandedSection === 'rd' ? null : 'rd')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold flex items-center justify-between border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isRdActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
                 <span>R&amp;D &amp; Technology</span>
-                {isRdActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-              </span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpandedSection === 'rd' ? 'rotate-180 text-emerald-600' : isRdActive ? 'text-emerald-600' : ''}`} />
-            </button>
-            {mobileExpandedSection === 'rd' && (
-              <div className="pl-2 py-2 space-y-1 bg-gray-50/90 rounded-xl mt-1 text-xs text-gray-600 border border-gray-100">
-                <button onClick={() => handleNavClick('/rd')} className={getMobileItemClass('/rd')}>R&amp;D Hub</button>
-                <button onClick={() => handleNavClick('/technology')} className={getMobileItemClass('/technology')}>Supercritical CO₂ Technology</button>
-                <button onClick={() => handleNavClick('/innovation-lab')} className={getMobileItemClass('/innovation-lab')}>Innovation &amp; Prototyping Lab</button>
-              </div>
-            )}
-          </div>
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileExpandedSection === 'rd' ? 'rotate-180' : ''} ${isRdActive ? 'text-white' : 'text-gray-500'}`} />
+              </button>
 
-          {/* Contact Us Direct */}
-          <button
-            onClick={() => handleNavClick('/contact-us')}
-            className={`w-full text-left py-2.5 px-2 rounded-lg font-semibold text-sm transition-colors border-b border-gray-100 ${
-              isContactActive
-                ? 'text-emerald-800 bg-emerald-50/80 font-bold border-emerald-200'
-                : 'text-gray-900 hover:text-emerald-700'
-            }`}
-          >
-            <span className="flex items-center gap-2">
-              <span>Contact Us</span>
-              {isContactActive && <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span>}
-            </span>
-          </button>
+              {mobileExpandedSection === 'rd' && (
+                <div className="p-2 mt-1 space-y-1.5 bg-gray-50/70 rounded-xl border border-gray-100 text-xs">
+                  <button onClick={() => handleNavClick('/rd')} className={getMobileItemClass('/rd')}>R&amp;D Hub</button>
+                  <button onClick={() => handleNavClick('/technology')} className={getMobileItemClass('/technology')}>Supercritical CO₂ Extraction Science</button>
+                  <button onClick={() => handleNavClick('/innovation-lab')} className={getMobileItemClass('/innovation-lab')}>Innovation &amp; Prototyping Lab</button>
+                </div>
+              )}
+            </div>
 
-          {/* Mobile Actions */}
-          <div className="pt-3 flex flex-col gap-2">
+            {/* 6. Contact Us */}
+            <div>
+              <button
+                onClick={() => handleNavClick('/contact-us')}
+                className={`w-full py-2.5 px-3.5 rounded-xl text-left text-xs font-bold border transition-all cursor-pointer active:scale-[0.98] shadow-2xs ${
+                  isContactActive
+                    ? 'bg-emerald-800 text-white border-emerald-900 shadow-xs'
+                    : 'bg-[#f4f7f5] text-gray-800 hover:bg-emerald-100/70 hover:text-emerald-950 border-emerald-900/10'
+                }`}
+              >
+                Contact Us
+              </button>
+            </div>
+          </nav>
+
+          {/* Calming, Elegant CTA Area */}
+          <div className="mt-5 pt-4 border-t border-gray-100 space-y-2">
             <button
-              onClick={() => { setMobileMenuOpen(false); onOpenQuote(); }}
-              className="w-full py-3 rounded-xl bg-emerald-800 text-white font-bold text-center text-sm shadow-md"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenQuote('Request Sample, Pricing & CoA');
+              }}
+              className="w-full py-3 px-4 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-center text-xs shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95"
             >
-              Request Quote / CoA
+              <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+              <span>Connect on WhatsApp</span>
             </button>
-            <a
-              href="https://wa.me/919567889001?text=Hi%20Nature%20Pure!%20I%20would%20like%20to%20inquire%20about%20your%20extracts."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full py-2.5 rounded-xl bg-emerald-100 text-emerald-900 font-semibold text-center text-sm flex items-center justify-center gap-2"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-700" />
-              <span>WhatsApp Chat</span>
-            </a>
+            <p className="text-center text-[10px] text-gray-400">
+              Technical Commercial Support &bull; Kerala, India
+            </p>
           </div>
         </div>
       )}

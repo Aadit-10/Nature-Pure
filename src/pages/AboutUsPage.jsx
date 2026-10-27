@@ -20,10 +20,6 @@ export default function AboutUsPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14 relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Who We Are</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Innovation-Led Botanical Extraction
           </h1>
@@ -84,7 +80,6 @@ export default function AboutUsPage({ onOpenQuote }) {
               onClick={() => navigate('/our-story')}
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
-              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Our Heritage</span>
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Our Story →</h3>
               <p className="text-xs text-gray-500 mt-2">Discover our journey since 1974 founded by chemical engineer Mr. N. T. Kuruvilla.</p>
             </div>
@@ -92,7 +87,6 @@ export default function AboutUsPage({ onOpenQuote }) {
               onClick={() => navigate('/infrastructure')}
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
-              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Manufacturing</span>
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Infrastructure →</h3>
               <p className="text-xs text-gray-500 mt-2">High-pressure SCFE autoclaves, Lyophilization, and in-house GC-MS analytics.</p>
             </div>
@@ -100,7 +94,6 @@ export default function AboutUsPage({ onOpenQuote }) {
               onClick={() => navigate('/mission-vision')}
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
-              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Philosophy</span>
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Mission &amp; Vision →</h3>
               <p className="text-xs text-gray-500 mt-2">Nature. Innovation. Humanity. Setting benchmarks in sustainable extraction.</p>
             </div>
@@ -108,7 +101,6 @@ export default function AboutUsPage({ onOpenQuote }) {
               onClick={() => navigate('/leadership')}
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
-              <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider block mb-1">Governance</span>
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Leadership →</h3>
               <p className="text-xs text-gray-500 mt-2">Guided by experienced chemical engineers and industrial innovators.</p>
             </div>
@@ -124,10 +116,11 @@ export default function AboutUsPage({ onOpenQuote }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenQuote('About Us Inquiry')}
-            className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
+            onClick={() => onOpenQuote('About Us Commercial Partnership')}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
           >
-            Request Commercial Quote
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+            <span>Request Commercial Partnership</span>
           </button>
         </div>
       </div>

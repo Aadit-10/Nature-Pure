@@ -25,10 +25,6 @@ export default function LeadershipPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14 text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <HeartHandshake className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Executive Governance</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Scientific Stewardship &amp; Strategic Vision
           </h1>
@@ -92,7 +88,6 @@ export default function LeadershipPage({ onOpenQuote }) {
         {/* Pillars Card */}
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-emerald-950 via-teal-950 to-emerald-900 text-white shadow-xl mb-14">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-widest text-emerald-300">Operational Excellence</span>
             <h3 className="text-2xl font-bold mt-1">The Five Pillars of Nature Pure Governance</h3>
             <p className="text-xs text-emerald-200 mt-2">Enforced across every batch, analytical CoA, and client agreement.</p>
           </div>

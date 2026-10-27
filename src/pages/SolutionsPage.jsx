@@ -87,10 +87,6 @@ export default function SolutionsPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Layers className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Integrated Industrial Platform</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Tailored Botanical Solutions
           </h1>
@@ -158,10 +154,12 @@ export default function SolutionsPage({ onOpenQuote }) {
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <button
-                    onClick={() => onOpenQuote(item.title)}
-                    className="py-3 px-5 rounded-xl text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-700 transition-all cursor-pointer whitespace-nowrap shadow-xs"
+                    onClick={() => onOpenQuote(`${item.title} Industrial Solution`)}
+                    className="inline-flex items-center gap-1.5 py-3 px-4 rounded-xl text-xs font-bold text-white bg-[#25D366] hover:bg-[#20ba59] transition-all cursor-pointer whitespace-nowrap shadow-xs"
+                    title={`Inquire about ${item.title} on WhatsApp`}
                   >
-                    Quote
+                    <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+                    <span>Inquire</span>
                   </button>
                 </div>
               </div>

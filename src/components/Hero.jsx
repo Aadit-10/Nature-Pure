@@ -20,12 +20,6 @@ export default function Hero({ onOpenQuote, onExploreCatalog, onExploreTech }) {
       <div className="absolute bottom-10 -right-20 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto text-center z-10">
-        {/* Top Innovation Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/70 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-medium tracking-wide mb-8 backdrop-blur-md shadow-lg">
-          <Sparkles className="w-4 h-4 text-amber-300" />
-          <span>Next-Generation Supercritical CO₂ Botanical Science</span>
-        </div>
-
         {/* Primary Headline */}
         <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-balance">
           Purity Extracted from the{' '}
@@ -52,9 +46,10 @@ export default function Hero({ onOpenQuote, onExploreCatalog, onExploreTech }) {
           </button>
 
           <button
-            onClick={() => onOpenQuote()}
-            className="px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-sm border border-white/25 backdrop-blur-md transition-all flex items-center gap-2 cursor-pointer"
+            onClick={() => onOpenQuote('Sample & CoA Request for Supercritical Extracts')}
+            className="px-7 py-4 rounded-full bg-emerald-600/30 hover:bg-emerald-600/50 text-white font-semibold text-sm border border-emerald-400/40 backdrop-blur-md transition-all flex items-center gap-2.5 cursor-pointer shadow-lg"
           >
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain brightness-0 invert" />
             <span>Request Sample &amp; CoA</span>
           </button>
 

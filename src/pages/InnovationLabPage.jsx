@@ -51,10 +51,6 @@ export default function InnovationLabPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Microscope className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Analytical Precision &amp; Prototyping</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Innovation &amp; Analytical Testing Laboratory
           </h1>
@@ -119,7 +115,6 @@ export default function InnovationLabPage({ onOpenQuote }) {
         {/* CTA Banner */}
         <div className="rounded-3xl bg-emerald-950 text-white p-8 sm:p-12 relative overflow-hidden border border-emerald-900 shadow-lg">
           <div className="max-w-2xl relative z-10">
-            <span className="text-amber-400 font-bold uppercase tracking-wider text-xs block mb-2">Collaborative Development</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">Partner with Our Analytical &amp; Formulation Team</h3>
             <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed mb-6">
               Accelerate your product launch with verified Certificates of Analysis (COA), pilot extraction trial runs, and customized active biomarker concentrations.
@@ -127,9 +122,10 @@ export default function InnovationLabPage({ onOpenQuote }) {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => onOpenQuote?.('Innovation & Lab Formulation Inquiry')}
-                className="px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-sm transition-all shadow-md cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-sm transition-all shadow-md cursor-pointer"
               >
-                Inquire for Lab Collaboration
+                <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+                <span>Inquire Lab Collaboration</span>
               </button>
               <button
                 onClick={() => navigate('/technology')}

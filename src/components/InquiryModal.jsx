@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, MessageSquare, Phone, Mail, FileText } from 'lucide-react';
+import { X, Send, CheckCircle2, Phone, Mail, FileText } from 'lucide-react';
 
 export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' }) {
   const [formData, setFormData] = useState({
@@ -167,7 +167,7 @@ export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' })
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-4 py-3 rounded-xl border border-emerald-200 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 text-xs font-bold flex items-center justify-center gap-2 whitespace-nowrap"
                 >
-                  <MessageSquare className="w-4 h-4 text-emerald-700" />
+                  <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
                   <span>Instant WhatsApp</span>
                 </a>
               </div>

@@ -24,10 +24,6 @@ export default function BulkExtractionPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Factory className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Industrial High-Volume Processing</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Bulk Supercritical CO₂ Botanical Extraction
           </h1>
@@ -97,10 +93,11 @@ export default function BulkExtractionPage({ onOpenQuote }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenQuote('Bulk Extraction Consultation')}
-            className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
+            onClick={() => onOpenQuote('Bulk Supercritical Extraction Consultation')}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
           >
-            Inquire Bulk Extraction
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+            <span>Inquire Bulk Extraction</span>
           </button>
         </div>
       </div>

@@ -20,10 +20,6 @@ export default function RDPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <FlaskConical className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Scientific Innovation</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Innovating Natural Ingredients Through Science &amp; Technology
           </h1>
@@ -66,7 +62,6 @@ export default function RDPage({ onOpenQuote }) {
               <div className="w-14 h-14 rounded-2xl bg-emerald-800 text-white flex items-center justify-center mb-6 shadow-md">
                 <Cpu className="w-7 h-7" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-2">Process Science</span>
               <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors">
                 Supercritical CO₂ Extraction Technology →
               </h3>
@@ -98,7 +93,6 @@ export default function RDPage({ onOpenQuote }) {
               <div className="w-14 h-14 rounded-2xl bg-teal-800 text-white flex items-center justify-center mb-6 shadow-md">
                 <Microscope className="w-7 h-7" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-teal-700 block mb-2">Formulation Lab</span>
               <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors">
                 Innovation &amp; Prototyping Lab →
               </h3>
@@ -132,10 +126,11 @@ export default function RDPage({ onOpenQuote }) {
             </p>
           </div>
           <button
-            onClick={() => onOpenQuote('R&D Collaboration Idea')}
-            className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
+            onClick={() => onOpenQuote('Botanical R&D Collaboration Idea')}
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
           >
-            Submit R&amp;D Inquiry
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+            <span>Discuss R&amp;D Collaboration</span>
           </button>
         </div>
       </div>

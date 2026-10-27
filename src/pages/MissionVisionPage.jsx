@@ -24,10 +24,6 @@ export default function MissionVisionPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14 text-center max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Compass className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Core Organizational Philosophy</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Driving Purity Through Innovation
           </h1>
@@ -47,9 +43,6 @@ export default function MissionVisionPage({ onOpenQuote }) {
               <div className="w-16 h-16 rounded-2xl bg-emerald-800 text-white flex items-center justify-center mb-6 shadow-md">
                 <Eye className="w-8 h-8" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 block mb-2">
-                Long-Term Aspiration
-              </span>
               <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Our Vision</h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 To become a globally recognized leader in natural food ingredients and supercritical extracts, setting new benchmarks in purity, innovation, and sustainable manufacturing.
@@ -70,9 +63,6 @@ export default function MissionVisionPage({ onOpenQuote }) {
               <div className="w-16 h-16 rounded-2xl bg-amber-700 text-white flex items-center justify-center mb-6 shadow-md">
                 <Target className="w-8 h-8" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-700 block mb-2">
-                Everyday Commitment
-              </span>
               <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Our Mission</h2>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                 We are committed to manufacturing premium-quality natural food ingredients with exceptional purity and consistency.
@@ -91,7 +81,6 @@ export default function MissionVisionPage({ onOpenQuote }) {
         {/* Guiding Principles */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-12 mb-14">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Core Values</span>
             <h3 className="text-2xl font-bold text-gray-900 mt-1">What Guides Every Decision at Nature Pure</h3>
           </div>
 

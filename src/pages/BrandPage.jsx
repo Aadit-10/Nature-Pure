@@ -121,13 +121,6 @@ export default function BrandPage({ brandId, onOpenQuote }) {
 
             {/* Brand Title & Description */}
             <div className="text-center md:text-left flex-grow">
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3"
-                style={{ backgroundColor: `${brand.accent}15`, color: brand.accent }}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>{brand.category}</span>
-              </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
                 {brand.name}
               </h1>
@@ -140,11 +133,12 @@ export default function BrandPage({ brandId, onOpenQuote }) {
 
               <div className="mt-6 flex flex-wrap items-center justify-center md:justify-start gap-3">
                 <button
-                  onClick={() => onOpenQuote?.(brand.name)}
-                  className="px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all cursor-pointer"
+                  onClick={() => onOpenQuote?.(`${brand.name} Division Dossier & Samples`)}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all cursor-pointer"
                   style={{ backgroundColor: brand.accent }}
                 >
-                  Request {brand.name} Dossier &amp; Quote
+                  <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain brightness-0 invert" />
+                  <span>Request {brand.name} Dossier</span>
                 </button>
                 <button
                   onClick={() => navigate('/')}
@@ -220,10 +214,6 @@ export default function BrandPage({ brandId, onOpenQuote }) {
         <div id="brand-verified-products" className="scroll-mt-28 mb-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-gray-200">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200">
-                <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-                <span>Standardized &amp; Certified Batches</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
                 Verified {brand.name} Products
               </h2>
@@ -414,10 +404,11 @@ export default function BrandPage({ brandId, onOpenQuote }) {
                     </span>
                     <button
                       onClick={() => onOpenQuote?.(product.name)}
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-50 hover:bg-emerald-700 text-emerald-800 hover:text-white transition-all cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366] text-emerald-950 hover:text-white transition-all cursor-pointer border border-[#25D366]/30"
+                      title={`Inquire about ${product.name} on WhatsApp`}
                     >
-                      <FileText className="w-3 h-3" />
-                      <span>Inquire</span>
+                      <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+                      <span>Inquire / CoA</span>
                     </button>
                   </div>
                 </div>

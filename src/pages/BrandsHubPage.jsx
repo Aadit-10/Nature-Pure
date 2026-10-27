@@ -25,10 +25,6 @@ export default function BrandsHubPage({ onOpenQuote }) {
 
         {/* Hero Banner */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14 relative overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Layers className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Four Specialized Manufacturing Divisions</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Our Curated Brands &amp; Botanical Portfolio
           </h1>
@@ -41,7 +37,6 @@ export default function BrandsHubPage({ onOpenQuote }) {
         <div className="mb-16">
           <div className="flex items-center justify-between mb-8">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Dedicated Divisions</span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900">
                 Four Specialized Product Divisions
               </h2>
@@ -125,10 +120,11 @@ export default function BrandsHubPage({ onOpenQuote }) {
 
                     <div className="flex items-center gap-2">
                       <button
-                        onClick={() => onOpenQuote?.(`${brand.name} Division`)}
-                        className="px-4 py-2 rounded-xl text-xs font-bold bg-gray-100 hover:bg-gray-200 text-gray-800 transition-colors cursor-pointer"
+                        onClick={() => onOpenQuote?.(`${brand.name} Division Catalog & CoA`)}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-900 transition-colors cursor-pointer border border-emerald-200/80"
                       >
-                        Request CoA
+                        <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+                        <span>Request CoA &amp; Spec</span>
                       </button>
                       <button
                         onClick={() => navigate(`/${brand.id}`)}
@@ -149,17 +145,17 @@ export default function BrandsHubPage({ onOpenQuote }) {
         {/* Technical Collaboration CTA Banner */}
         <div className="rounded-3xl bg-emerald-950 text-white p-8 sm:p-12 relative overflow-hidden border border-emerald-900 shadow-md">
           <div className="max-w-2xl relative z-10">
-            <span className="text-amber-400 font-bold uppercase tracking-wider text-xs block mb-2">Custom Industrial Formulations</span>
             <h3 className="text-2xl sm:text-3xl font-bold mb-3">Looking for Customized Active Biomarkers or Blends?</h3>
             <p className="text-emerald-100/90 text-sm leading-relaxed mb-6">
               Our engineering and phyto-chemistry team collaborates directly with food, nutraceutical, and cosmetic brands to formulate custom solvent-free specifications and tailored particle sizes.
             </p>
             <div className="flex flex-wrap gap-3">
               <button
-                onClick={() => onOpenQuote?.('Custom Formulation Inquiry')}
-                className="px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
+                onClick={() => onOpenQuote?.('Custom Formulation & Bioactive Blend Inquiry')}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer"
               >
-                Request Custom Quote / CoA
+                <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+                <span>Request Custom Quote</span>
               </button>
               <button
                 onClick={() => navigate('/#catalog')}

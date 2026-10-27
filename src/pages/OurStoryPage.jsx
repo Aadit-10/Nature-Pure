@@ -25,10 +25,6 @@ export default function OurStoryPage({ onOpenQuote }) {
 
         {/* Story Hero */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Clock className="w-3.5 h-3.5 text-emerald-600" />
-            <span>50-Year Heritage (1974 - Present)</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Our Story: Rooted in Scientific Excellence
           </h1>
@@ -70,7 +66,6 @@ export default function OurStoryPage({ onOpenQuote }) {
         {/* Milestone Timeline */}
         <div className="mb-16">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700">Chronological Evolution</span>
             <h2 className="text-3xl font-extrabold text-gray-900 mt-1">Five Decades of Industrial Milestones</h2>
           </div>
 

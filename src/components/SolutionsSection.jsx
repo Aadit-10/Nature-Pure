@@ -70,10 +70,6 @@ export default function SolutionsSection({ onOpenQuote }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200">
-            <Layers className="w-3.5 h-3.5 text-emerald-700" />
-            <span>Industrial Capabilities</span>
-          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight">
             Tailored Botanical Solutions
           </h2>
@@ -82,49 +78,49 @@ export default function SolutionsSection({ onOpenQuote }) {
           </p>
         </div>
 
-        {/* 4 Solutions Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* 4 Solutions Cards (2 in a row on mobile, 2x2 spacious grid on PC) */}
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6 md:gap-8">
           {solutions.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.id}
-                className="rounded-3xl bg-gray-50/70 border border-gray-200/90 p-8 hover:bg-white hover:shadow-xl hover:border-emerald-200/80 transition-all duration-300 flex flex-col justify-between group"
+                className="rounded-2xl md:rounded-3xl bg-gray-50/70 border border-gray-200/90 p-3.5 sm:p-6 md:p-8 hover:bg-white hover:shadow-xl hover:border-emerald-200/80 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-700 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                      <Icon className="w-7 h-7" />
+                  <div className="flex items-center justify-between mb-3 sm:mb-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-700 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100/80 text-emerald-800 border border-emerald-200/80">
+                    <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wider px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-emerald-100/80 text-emerald-800 border border-emerald-200/80">
                       {item.badge}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors">
+                  <h3 className="text-sm sm:text-lg md:text-2xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-sm text-gray-600 mt-3 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-600 mt-1.5 sm:mt-3 leading-relaxed line-clamp-3 sm:line-clamp-none">
                     {item.description}
                   </p>
 
-                  <div className="mt-6 pt-6 border-t border-gray-200/60 space-y-2.5">
-                    {item.highlights.map((point) => (
-                      <div key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{point}</span>
+                  <div className="mt-3 sm:mt-6 pt-3 sm:pt-6 border-t border-gray-200/60 space-y-1.5 sm:space-y-2.5">
+                    {item.highlights.map((point, pIdx) => (
+                      <div key={point} className={`items-start gap-1.5 sm:gap-2.5 text-[11px] sm:text-sm text-gray-700 ${pIdx >= 2 ? 'hidden sm:flex' : 'flex'}`}>
+                        <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0 mt-0.5" />
+                        <span className="line-clamp-2 sm:line-clamp-none">{point}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="mt-8 pt-5 border-t border-gray-200/60">
+                <div className="mt-4 sm:mt-8 pt-3 sm:pt-5 border-t border-gray-200/60">
                   <button
-                    onClick={() => onOpenQuote(item.title)}
-                    className="w-full py-3 px-4 rounded-xl text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-700 shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    onClick={() => onOpenQuote(`${item.title} Industrial Service`)}
+                    className="w-full py-2.5 md:py-3.5 px-2 md:px-4 rounded-xl text-[11px] md:text-xs font-bold text-white bg-gradient-to-r from-emerald-800 to-teal-800 hover:from-emerald-700 hover:to-teal-700 shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer"
                   >
-                    <span>{item.ctaText}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain brightness-0 invert" />
+                    <span className="line-clamp-1">{item.ctaText}</span>
                   </button>
                 </div>
               </div>

@@ -66,10 +66,6 @@ export default function ProductCatalog({ selectedSubBrand, onOpenQuote, initialS
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-              <span>Authentic Verified Catalog</span>
-            </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">
               Interactive Botanical Catalog
             </h2>
@@ -209,10 +205,11 @@ export default function ProductCatalog({ selectedSubBrand, onOpenQuote, initialS
                   </span>
                   <button
                     onClick={() => onOpenQuote(product.name)}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-emerald-50 hover:bg-emerald-600 text-emerald-800 hover:text-white transition-all cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366] text-emerald-950 hover:text-white transition-all cursor-pointer border border-[#25D366]/30"
+                    title={`Inquire about ${product.name} on WhatsApp`}
                   >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>Request Spec</span>
+                    <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+                    <span>Inquire / CoA</span>
                   </button>
                 </div>
               </div>

@@ -24,10 +24,6 @@ export default function ContractManufacturingPage({ onOpenQuote }) {
 
         {/* Hero Section */}
         <div className="rounded-3xl bg-white border border-gray-200/90 p-8 sm:p-14 shadow-xs mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4 border border-emerald-200/80">
-            <Layers className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Turnkey Formulation &amp; Production</span>
-          </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-4xl">
             Contract Manufacturing &amp; Private Formulation
           </h1>
@@ -111,9 +107,10 @@ export default function ContractManufacturingPage({ onOpenQuote }) {
           </div>
           <button
             onClick={() => onOpenQuote('Contract Manufacturing Consultation')}
-            className="px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-950 bg-emerald-400 hover:bg-emerald-300 transition-all shadow-md cursor-pointer whitespace-nowrap"
           >
-            Inquire Contract Manufacturing
+            <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
+            <span>Inquire Contract Manufacturing</span>
           </button>
         </div>
       </div>
