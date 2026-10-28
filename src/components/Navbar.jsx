@@ -76,20 +76,20 @@ export default function Navbar({ onOpenQuote }) {
   const getNavButtonClass = (isActive) => {
     if (isSolidHeader) {
       return isActive
-        ? 'bg-emerald-800 text-white font-extrabold shadow-sm border border-emerald-900 active:scale-95'
-        : 'bg-[#f4f7f5] text-gray-800 hover:text-emerald-950 hover:bg-emerald-100/80 border border-emerald-900/10 hover:border-emerald-300/80 shadow-2xs font-bold active:scale-95';
+        ? 'text-emerald-800 bg-emerald-50/90 font-bold border border-emerald-300/80 shadow-2xs'
+        : 'text-gray-700 hover:text-emerald-700 hover:bg-gray-50';
     } else {
       return isActive
-        ? 'bg-emerald-600/95 text-white font-extrabold shadow-sm border border-emerald-400 active:scale-95'
-        : 'bg-white/10 text-white hover:bg-white/20 hover:text-emerald-200 border border-white/20 hover:border-white/40 shadow-2xs font-bold backdrop-blur-md active:scale-95';
+        ? 'text-emerald-300 bg-white/20 font-bold border border-white/30 shadow-2xs'
+        : 'text-gray-100 hover:text-emerald-300 hover:bg-white/5';
     }
   };
 
   const getDropdownItemClass = (pathSlug) => {
     const isCurrent = cleanPath === pathSlug.replace(/^\//, '').toLowerCase();
     return isCurrent
-      ? 'w-full text-left px-3.5 py-2.5 rounded-xl bg-emerald-800 text-white font-bold border border-emerald-900 transition-all cursor-pointer flex items-center justify-between shadow-xs active:scale-[0.98]'
-      : 'w-full text-left px-3.5 py-2.5 rounded-xl bg-gray-50/80 hover:bg-emerald-50 text-gray-800 hover:text-emerald-900 font-semibold border border-gray-100 hover:border-emerald-200 transition-all cursor-pointer flex items-center justify-between active:scale-[0.98]';
+      ? 'w-full text-left px-3 py-2.5 rounded-xl bg-emerald-50 text-emerald-950 font-bold border-l-4 border-emerald-600 transition-colors cursor-pointer flex flex-col shadow-2xs'
+      : 'w-full text-left px-3 py-2.5 rounded-xl hover:bg-emerald-50/50 text-gray-700 hover:text-emerald-800 font-medium transition-colors cursor-pointer flex flex-col';
   };
 
   const getMobileItemClass = (pathSlug) => {
@@ -136,19 +136,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/about-us')}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                   isAboutActive
                 )}`}
               >
                 <span>About Us</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'about' ? 'rotate-180' : ''
-                } ${isAboutActive ? 'opacity-100' : 'opacity-60'}`} />
+                  activeDropdown === 'about' ? 'rotate-180 text-emerald-500' : isAboutActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
+                }`} />
               </button>
 
               {activeDropdown === 'about' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
                     <button
                       onClick={() => handleNavClick('/about-us')}
                       className={getDropdownItemClass('/about-us')}
@@ -197,14 +197,14 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/brands')}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                   isProductsActive
                 )}`}
               >
                 <span>Products</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'products' ? 'rotate-180' : ''
-                } ${isProductsActive ? 'opacity-100' : 'opacity-60'}`} />
+                  activeDropdown === 'products' ? 'rotate-180 text-emerald-500' : isProductsActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
+                }`} />
               </button>
 
               {activeDropdown === 'products' && (
@@ -354,19 +354,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/quality')}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                   isQualityActive
                 )}`}
               >
                 <span>Quality</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'quality' ? 'rotate-180' : ''
-                } ${isQualityActive ? 'opacity-100' : 'opacity-60'}`} />
+                  activeDropdown === 'quality' ? 'rotate-180 text-emerald-500' : isQualityActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
+                }`} />
               </button>
 
               {activeDropdown === 'quality' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
                     <button
                       onClick={() => handleNavClick('/quality')}
                       className={getDropdownItemClass('/quality')}
@@ -394,19 +394,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/solutions')}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                   isSolutionsActive
                 )}`}
               >
                 <span>Solutions</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'solutions' ? 'rotate-180' : ''
-                } ${isSolutionsActive ? 'opacity-100' : 'opacity-60'}`} />
+                  activeDropdown === 'solutions' ? 'rotate-180 text-emerald-500' : isSolutionsActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
+                }`} />
               </button>
 
               {activeDropdown === 'solutions' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
                     <button
                       onClick={() => handleNavClick('/solutions')}
                       className={getDropdownItemClass('/solutions')}
@@ -441,19 +441,19 @@ export default function Navbar({ onOpenQuote }) {
             >
               <button
                 onClick={() => handleNavClick('/rd')}
-                className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                   isRdActive
                 )}`}
               >
                 <span>R&amp;D</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === 'rd' ? 'rotate-180' : ''
-                } ${isRdActive ? 'opacity-100' : 'opacity-60'}`} />
+                  activeDropdown === 'rd' ? 'rotate-180 text-emerald-500' : isRdActive ? 'text-emerald-600' : isSolidHeader ? 'text-gray-400' : 'text-emerald-200/70'
+                }`} />
               </button>
 
               {activeDropdown === 'rd' && (
                 <div className="absolute top-full left-0 w-64 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150">
-                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900 space-y-1">
+                  <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 text-sm text-gray-900">
                     <button
                       onClick={() => handleNavClick('/rd')}
                       className={getDropdownItemClass('/rd')}
@@ -483,7 +483,7 @@ export default function Navbar({ onOpenQuote }) {
             {/* 6. Contact Us */}
             <button
               onClick={() => handleNavClick('/contact-us')}
-              className={`px-3.5 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer ${getNavButtonClass(
+              className={`px-3 py-2 text-sm font-semibold rounded-lg transition-colors cursor-pointer ${getNavButtonClass(
                 isContactActive
               )}`}
             >

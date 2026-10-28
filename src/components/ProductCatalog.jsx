@@ -33,8 +33,8 @@ export default function ProductCatalog({ selectedSubBrand, onOpenQuote, initialS
   const subBrandTabs = [
     { id: 'all', label: 'All Curated Brands' },
     { id: 'natures-purest', label: "Nature's Purest" },
-    { id: 'natures-extracts', label: "Nature's Extracts" },
-    { id: 'natures-alchemy', label: "Nature's Alchemy" },
+    { id: 'natures-extracts', label: "Nature's Extracts (Conventional)" },
+    { id: 'natures-alchemy', label: "Nature's Alchemy (Additives)" },
     { id: 'nature-harvest', label: "Nature's Harvest" },
   ];
 

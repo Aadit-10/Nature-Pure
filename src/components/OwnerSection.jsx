@@ -70,7 +70,7 @@ export default function OwnerSection() {
                   "True purity requires no solvents, no shortcuts, and no compromises. When we respect nature through rigorous thermodynamic science, we deliver unadulterated botanical efficacy for future generations."
                 </p>
                 <span className="block mt-2 text-xs font-bold text-emerald-800 uppercase tracking-wider">
-                  — Mr. N. T. Kuruvilla, Founder
+                  &mdash; Mr. N. T. Kuruvilla, Founder
                 </span>
               </div>
 

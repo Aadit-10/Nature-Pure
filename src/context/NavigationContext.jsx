@@ -8,40 +8,59 @@ export function NavigationProvider({ children }) {
   useEffect(() => {
     const handlePopState = () => {
       setCurrentPath(window.location.pathname || '/');
+      if (window.location.hash) {
+        setTimeout(() => {
+          const el = document.querySelector(window.location.hash);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+      }
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigate = (path) => {
-    if (path.startsWith('#')) {
-      // If we are not on home, first go to home then scroll
-      if (currentPath !== '/') {
-        window.history.pushState(null, '', '/' + path);
-        const update = () => setCurrentPath('/');
-        if (typeof document !== 'undefined' && document.startViewTransition) {
-          document.startViewTransition(update);
-        } else {
-          update();
-        }
-        setTimeout(() => {
-          const el = document.querySelector(path);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
-      } else {
-        const el = document.querySelector(path);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    // Extract route and hash from path (e.g., '/#catalog', '/brands#catalog', '#catalog', '/solutions')
+    let route = path;
+    let hash = '';
+    const hashIndex = path.indexOf('#');
+    if (hashIndex !== -1) {
+      route = path.substring(0, hashIndex) || '/';
+      hash = path.substring(hashIndex);
+    }
+
+    if (!route.startsWith('/')) {
+      route = '/' + route;
+    }
+
+    const isSameRoute = route === currentPath;
+
+    window.history.pushState(null, '', path.startsWith('#') ? (currentPath === '/' ? path : '/' + path) : path);
+
+    if (isSameRoute && hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
       }
       return;
     }
 
-    window.history.pushState(null, '', path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    const update = () => setCurrentPath(path);
+    const update = () => setCurrentPath(route);
     if (typeof document !== 'undefined' && document.startViewTransition) {
       document.startViewTransition(update);
     } else {
       update();
+    }
+
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 

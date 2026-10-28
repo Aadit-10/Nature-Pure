@@ -8,10 +8,10 @@ export default function QualityPage({ onOpenQuote }) {
   const [openFaq, setOpenFaq] = useState(0);
 
   const certLogos = [
-    { name: 'FSSAI Certified', image: '/wp-content/uploads/2026/04/1-1-150x150.webp', desc: 'Food Safety and Standards Authority of India manufacturing license.' },
+    { name: 'FSSAI Certified', image: '/wp-content/uploads/2026/04/4-1-150x150.webp', desc: 'Food Safety and Standards Authority of India manufacturing license.' },
     { name: '100% Organic Certified', image: '/wp-content/uploads/2026/04/2-1-150x150.webp', desc: 'Verified chemical-free raw material sourcing & organic processing.' },
     { name: 'Halal Certified', image: '/wp-content/uploads/2026/04/3-1-150x150.webp', desc: 'Compliant with Islamic dietary laws and international Halal standards.' },
-    { name: 'Kosher Certified', image: '/wp-content/uploads/2026/04/4-1-150x150.webp', desc: 'Certified kosher compliance for global food and beverage export.' },
+    { name: 'Kosher Certified', image: '/wp-content/uploads/2026/04/1-1-150x150.webp', desc: 'Certified kosher compliance for global food and beverage export.' },
   ];
 
   const qualityStandards = [

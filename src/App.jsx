@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OwnerSection from './components/OwnerSection';
 import ManagementSection from './components/ManagementSection';
 import AboutUsSection from './components/AboutUsSection';
 import SubBrandsSection from './components/SubBrandsSection';
+import ProductCatalog from './components/ProductCatalog';
 import SolutionsSection from './components/SolutionsSection';
 import MapSection from './components/MapSection';
 import InfrastructureSection from './components/InfrastructureSection';
@@ -13,7 +14,9 @@ import PeopleWhoKnowUsBetter from './components/PeopleWhoKnowUsBetter';
 import CertificationsSection from './components/CertificationsSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
-import { openWhatsApp } from './utils/whatsapp';
+import InquiryModal from './components/InquiryModal';
+import { openWhatsApp, getWhatsAppUrl } from './utils/whatsapp';
+import { MessageCircle } from 'lucide-react';
 
 // Dedicated Standalone Pages
 import BrandPage from './pages/BrandPage';
@@ -38,24 +41,16 @@ import { subCategoriesData } from './data/subCategories';
 
 export default function App() {
   const { currentPath, navigate } = useNavigation();
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [quoteModalSubject, setQuoteModalSubject] = useState('');
+
+  const handleOpenQuoteModal = (subject = '') => {
+    setQuoteModalSubject(subject);
+    setIsQuoteModalOpen(true);
+  };
 
   const handleOpenQuote = (productOrSubject = '') => {
-    let message = '';
-    if (!productOrSubject) {
-      message =
-        'Hi Nature Pure Extracts! I would like to request product samples, pricing details, and Certificates of Analysis (CoA).';
-    } else if (
-      productOrSubject.toLowerCase().includes('inquiry') ||
-      productOrSubject.toLowerCase().includes('request') ||
-      productOrSubject.toLowerCase().includes('consultation') ||
-      productOrSubject.toLowerCase().includes('division') ||
-      productOrSubject.toLowerCase().includes('idea')
-    ) {
-      message = `Hi Nature Pure Extracts! I would like to inquire regarding ${productOrSubject}. Could you provide technical specifications and commercial details?`;
-    } else {
-      message = `Hi Nature Pure Extracts! I am interested in ${productOrSubject}. Could you share sample availability, CoA, and pricing parameters?`;
-    }
-    openWhatsApp(message);
+    handleOpenQuoteModal(productOrSubject);
   };
 
   const handleExploreCatalog = () => {
@@ -75,7 +70,6 @@ export default function App() {
     'natures-purest': 'natures-purest',
     'naturesextracts': 'natures-extracts',
     'natures-extracts': 'natures-extracts',
-    'nature-pure-extracts': 'natures-purest',
     'natures-alchemy': 'natures-alchemy'
   };
 
@@ -86,6 +80,12 @@ export default function App() {
     const sSlug = s.slug.toLowerCase();
     if (sSlug === cleanPath) return true;
     if (sSlug === 'natural-flavors-and-fragrance' && (cleanPath === 'natural-flavors' || cleanPath === 'fragrance' || cleanPath === 'flavors' || cleanPath === 'flavors-and-fragrance')) {
+      return true;
+    }
+    if (sSlug === 'food-addictives' && cleanPath === 'food-additives') {
+      return true;
+    }
+    if (sSlug === 'lypopure' && cleanPath === 'lyopure') {
       return true;
     }
     return false;
@@ -218,10 +218,17 @@ export default function App() {
       {/* Corporate Footer */}
       <Footer onOpenQuote={handleOpenQuote} />
 
+      {/* Interactive Quotation & Sample Request Modal */}
+      <InquiryModal
+        isOpen={isQuoteModalOpen}
+        onClose={() => setIsQuoteModalOpen(false)}
+        prefilledProduct={quoteModalSubject}
+      />
+
       {/* Floating WhatsApp Action Button (Symbol only) */}
       <aside aria-label="Floating WhatsApp" className="fixed bottom-6 right-6 z-40 group">
         <a
-          href="https://wa.me/919567889001?text=Hi%20Nature%20Pure!%20I%20would%20like%20to%20inquire%20about%20your%20extracts."
+          href={getWhatsAppUrl()}
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-all p-3.5 border-2 border-white/80"
@@ -231,7 +238,13 @@ export default function App() {
             src="/whatsapp-icon.png"
             alt="WhatsApp"
             className="w-full h-full object-contain brightness-0 invert"
+            onError={(e) => {
+              e.currentTarget.style.display = 'none';
+              const fallback = e.currentTarget.nextElementSibling;
+              if (fallback) fallback.classList.remove('hidden');
+            }}
           />
+          <MessageCircle className="w-7 h-7 text-white hidden" />
         </a>
       </aside>
     </div>

@@ -64,41 +64,60 @@ export default function OurStoryPage({ onOpenQuote }) {
         </div>
 
         {/* Milestone Timeline */}
-        <div className="mb-16">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl font-extrabold text-gray-900 mt-1">Five Decades of Industrial Milestones</h2>
+            <p className="mt-3 text-sm sm:text-base text-gray-600">
+              A 50-year progression from pharmaceutical benchmarks to operating India's benchmark supercritical CO₂ processing facilities.
+            </p>
           </div>
 
-          <div className="relative border-l-2 border-emerald-300/60 ml-4 sm:ml-8 pl-6 sm:pl-10 space-y-12">
-            {heritageTimeline.map((item) => (
-              <div key={item.year} className="relative group">
-                {/* Year Marker Pill */}
-                <div className="absolute -left-[37px] sm:-left-[53px] top-0 w-8 h-8 rounded-full bg-emerald-700 text-white flex items-center justify-center font-bold text-xs shadow-md border-4 border-white">
-                  ✓
-                </div>
+          {/* Timeline Track */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical Center Line */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-300 via-emerald-600 to-teal-800 -translate-x-1/2" />
 
-                <div className="rounded-2xl bg-white border border-gray-200/90 p-6 sm:p-8 shadow-xs hover:shadow-lg transition-all">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800">
-                      {item.year}
-                    </span>
-                    <span className="text-xs font-semibold text-emerald-700 uppercase tracking-wider">
-                      {item.tagline}
-                    </span>
+            <div className="space-y-12">
+              {heritageTimeline.map((item, index) => {
+                const isEven = index % 2 === 0;
+                return (
+                  <div
+                    key={item.year}
+                    className={`flex flex-col md:flex-row items-center ${
+                      isEven ? 'md:flex-row-reverse' : ''
+                    } gap-6 md:gap-12 relative`}
+                  >
+                    {/* Content Card */}
+                    <div className="w-full md:w-1/2">
+                      <div className="bg-white p-7 rounded-3xl border border-amber-200/70 shadow-sm hover:shadow-xl transition-all duration-300 relative group hover:-translate-y-1">
+                        <div className="flex items-center justify-between mb-3">
+                          <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-100/70 text-amber-900 border border-amber-200">
+                            {item.badge}
+                          </span>
+                          <span className="text-xl font-black text-emerald-800">
+                            {item.year}
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-emerald-800 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 mt-2.5 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Center Node */}
+                    <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-emerald-800 text-white font-bold text-xs items-center justify-center border-4 border-white shadow-md z-10">
+                      <Clock className="w-4 h-4 text-amber-300" />
+                    </div>
+
+                    {/* Empty side for layout spacing */}
+                    <div className="hidden md:block w-1/2" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-4">
-                    {item.desc}
-                  </p>
-                  <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 pt-3 border-t border-gray-100">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Impact: {item.impact}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
         </div>
 

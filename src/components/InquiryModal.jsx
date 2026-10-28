@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, Phone, Mail, FileText } from 'lucide-react';
+import { getWhatsAppUrl } from '../utils/whatsapp';
 
 export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' }) {
   const [formData, setFormData] = useState({
@@ -12,7 +13,16 @@ export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' })
     industry: 'Nutraceuticals',
     message: ''
   });
+  const [requestSample, setRequestSample] = useState(true);
+  const [requestCoA, setRequestCoA] = useState(true);
+  const [requestPricing, setRequestPricing] = useState(true);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (prefilledProduct) {
+      setFormData((prev) => ({ ...prev, product: prefilledProduct }));
+    }
+  }, [prefilledProduct]);
 
   if (!isOpen) return null;
 
@@ -26,6 +36,17 @@ export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' })
         onClose();
       }, 4000);
     }, 600);
+  };
+
+  const getCustomWhatsAppMessage = () => {
+    const requests = [
+      requestSample && '100g Pilot Sample',
+      requestCoA && 'CoA / Tech Specs',
+      requestPricing && 'Price Quotation'
+    ].filter(Boolean).join(', ');
+
+    const prod = formData.product ? formData.product : 'botanical extracts';
+    return `Hi Nature Pure Extracts! I would like to inquire regarding ${prod}. Requested: ${requests || 'Technical & Commercial info'}. Volume: ${formData.volume}. Name: ${formData.name || 'Valued Partner'}, Company: ${formData.company || 'N/A'}.`;
   };
 
   return (
@@ -142,10 +163,44 @@ export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' })
                 </div>
               </div>
 
+              {/* Deliverable Checkboxes */}
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">Deliverables Requested</label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-gray-50/80 p-3 rounded-xl border border-gray-200">
+                  <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-gray-800">
+                    <input
+                      type="checkbox"
+                      checked={requestSample}
+                      onChange={(e) => setRequestSample(e.target.checked)}
+                      className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-gray-300 cursor-pointer accent-emerald-600"
+                    />
+                    <span>Request 100g Sample</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-gray-800">
+                    <input
+                      type="checkbox"
+                      checked={requestCoA}
+                      onChange={(e) => setRequestCoA(e.target.checked)}
+                      className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-gray-300 cursor-pointer accent-emerald-600"
+                    />
+                    <span>CoA / Technical Specs</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer text-xs font-semibold text-gray-800">
+                    <input
+                      type="checkbox"
+                      checked={requestPricing}
+                      onChange={(e) => setRequestPricing(e.target.checked)}
+                      className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-gray-300 cursor-pointer accent-emerald-600"
+                    />
+                    <span>Price Quotation</span>
+                  </label>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1">Technical Requirements / Notes</label>
                 <textarea
-                  rows="3"
+                  rows="2"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Specify target active concentration, application medium (liquid/powder/oil), or target pharmacopeia..."
@@ -162,13 +217,14 @@ export default function InquiryModal({ isOpen, onClose, prefilledProduct = '' })
                   <span>Transmit Inquiry</span>
                 </button>
                 <a
-                  href={`https://wa.me/919567889001?text=Hi%20Nature%20Pure!%20I%20would%20like%20to%20inquire%20about%20${encodeURIComponent(formData.product || 'your extracts')}`}
+                  href={getWhatsAppUrl(getCustomWhatsAppMessage())}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-4 py-3 rounded-xl border border-emerald-200 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 text-xs font-bold flex items-center justify-center gap-2 whitespace-nowrap"
+                  className="w-full sm:w-auto px-4 py-3 rounded-xl border border-emerald-300 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 text-xs font-bold flex items-center justify-center gap-2 whitespace-nowrap transition-colors"
+                  title="Direct WhatsApp Inquiry"
                 >
                   <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-4 h-4 object-contain" />
-                  <span>Instant WhatsApp</span>
+                  <span>Prefer WhatsApp? Chat Directly</span>
                 </a>
               </div>
             </form>

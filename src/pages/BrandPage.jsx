@@ -210,12 +210,12 @@ export default function BrandPage({ brandId, onOpenQuote }) {
           </div>
         )}
 
-        {/* Verified Products Section with Interactive Tabs */}
-        <div id="brand-verified-products" className="scroll-mt-28 mb-8">
+        {/* Products Section with Interactive Tabs */}
+        <div id="brand-products" className="scroll-mt-28 mb-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-gray-200">
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-                Verified {brand.name} Products
+                {brand.name} Products
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 mt-1">
                 Use the product line tabs below to switch between pure supercritical oils, oleoresins, total extracts, and botanicals.
@@ -321,7 +321,7 @@ export default function BrandPage({ brandId, onOpenQuote }) {
           <div className="mt-2 mb-6 flex items-center justify-between text-xs text-gray-500 font-medium">
             <span>
               Showing <strong className="text-gray-900">{visibleProducts.length}</strong> of{' '}
-              <strong className="text-gray-900">{filteredProducts.length}</strong> verified products
+              <strong className="text-gray-900">{filteredProducts.length}</strong> products
             </span>
             {(activeSubCat !== 'all' || activeCategoryFilter !== 'all' || searchQuery) && (
               <button

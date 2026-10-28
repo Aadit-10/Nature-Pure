@@ -115,7 +115,7 @@ export default function BrandsHubPage({ onOpenQuote }) {
                   {/* Actions Bar */}
                   <div className="pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3">
                     <span className="text-xs font-bold text-gray-500">
-                      <strong className="text-gray-900">{brandProductsCount}</strong> Verified Items
+                      <strong className="text-gray-900">{brandProductsCount}</strong> Products
                     </span>
 
                     <div className="flex items-center gap-2">

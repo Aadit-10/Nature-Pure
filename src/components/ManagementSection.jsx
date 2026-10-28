@@ -26,7 +26,7 @@ export default function ManagementSection() {
               {/* Leader Image Container with clean framing */}
               <div className="w-full h-80 sm:h-96 overflow-hidden bg-slate-900/5 relative flex items-center justify-center p-3">
                 <img
-                  src="/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-9.47.36-PM-1001x1024.jpeg"
+                  src="/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-9.44.38-PM-1024x796.jpeg"
                   alt="Thomas Kuruvilla - Managing Director"
                   className="w-full h-full object-contain object-top rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"
@@ -62,7 +62,7 @@ export default function ManagementSection() {
               {/* Leader Image Container with clean framing */}
               <div className="w-full h-80 sm:h-96 overflow-hidden bg-slate-900/5 relative flex items-center justify-center p-3">
                 <img
-                  src="/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-9.44.38-PM-1024x796.jpeg"
+                  src="/wp-content/uploads/2026/05/WhatsApp-Image-2026-05-12-at-9.47.36-PM-1001x1024.jpeg"
                   alt="Joseph Biju Kuruvilla - Director of Technology & R&D"
                   className="w-full h-full object-contain object-top rounded-2xl group-hover:scale-[1.02] transition-transform duration-500"
                   loading="lazy"

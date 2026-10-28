@@ -267,7 +267,7 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
             <div className="mt-4 mb-6 flex items-center justify-between text-xs text-gray-500 font-medium">
               <span>
                 Showing <strong className="text-gray-900">{visibleProducts.length}</strong> of{' '}
-                <strong className="text-gray-900">{products.length}</strong> verified products
+                <strong className="text-gray-900">{products.length}</strong> products
               </span>
               {searchQuery && (
                 <button
@@ -311,7 +311,7 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
                     </p>
                   </div>
                   <span className="shrink-0 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold self-start sm:self-center">
-                    {flavorsProducts.length} Verified Flavors
+                    {flavorsProducts.length} Flavors
                   </span>
                 </div>
 
@@ -338,7 +338,7 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
                     </p>
                   </div>
                   <span className="shrink-0 px-3 py-1 rounded-full bg-sky-100 text-sky-900 text-xs font-bold self-start sm:self-center">
-                    {fragranceProducts.length} Verified Fragrances
+                    {fragranceProducts.length} Fragrances
                   </span>
                 </div>
 

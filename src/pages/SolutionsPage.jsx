@@ -147,7 +147,13 @@ export default function SolutionsPage({ onOpenQuote }) {
 
                 <div className="p-8 pt-0 flex items-center gap-3">
                   <button
-                    onClick={() => navigate(`/${item.slug}`)}
+                    onClick={() => {
+                      if (item.id === 'private-label') {
+                        onOpenQuote('White Label & Private Label Inquiry');
+                      } else {
+                        navigate(`/${item.slug}`);
+                      }
+                    }}
                     className="flex-grow py-3 px-4 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <span>{item.linkText}</span>
