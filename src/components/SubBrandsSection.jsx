@@ -3,7 +3,7 @@ import { subBrands } from '../data/catalog';
 import { useNavigation } from '../context/NavigationContext';
 import { ArrowRight, Sparkles, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 
-export default function SubBrandsSection() {
+export default function SubBrandsSection({ onOpenQuote }) {
   const { navigate } = useNavigation();
   const [expandedBrands, setExpandedBrands] = useState({});
 
@@ -124,24 +124,36 @@ export default function SubBrandsSection() {
                   )}
                 </div>
 
-                {/* Always-Visible Action Button */}
-                <div className="mt-3.5 sm:mt-5 pt-3 sm:pt-4 border-t border-gray-100">
+                {/* Always-Visible Action Buttons: Explore & WhatsApp */}
+                <div className="mt-3.5 sm:mt-5 pt-3 sm:pt-4 border-t border-gray-100 flex items-center gap-1.5 sm:gap-2">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/${brand.id}`);
                     }}
-                    className="w-full py-2 sm:py-2.5 px-2 sm:px-4 rounded-xl text-[11px] sm:text-xs font-bold text-center transition-all flex items-center justify-center gap-1 sm:gap-2 cursor-pointer shadow-xs hover:shadow-md"
+                    className="flex-1 py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold text-center transition-all flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer shadow-xs hover:shadow-md"
                     style={{
                       backgroundColor: `${brand.accent}15`,
                       color: brand.accent,
                       border: `1px solid ${brand.accent}30`
                     }}
                   >
-                    <span className="hidden sm:inline">Explore {brand.name} Page</span>
-                    <span className="sm:hidden">Explore Page</span>
+                    <span className="hidden sm:inline">Explore {brand.name}</span>
+                    <span className="sm:hidden">Explore</span>
                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onOpenQuote?.(`${brand.name} Division`);
+                    }}
+                    className="py-2 sm:py-2.5 px-2.5 sm:px-3 rounded-xl text-[11px] sm:text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366] text-emerald-950 hover:text-white transition-all cursor-pointer border border-[#25D366]/30 flex items-center justify-center gap-1"
+                    title={`Inquire about ${brand.name} on WhatsApp`}
+                  >
+                    <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+                    <span>WA</span>
                   </button>
                 </div>
               </div>

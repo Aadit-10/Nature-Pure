@@ -367,7 +367,7 @@ export default function BrandPage({ brandId, onOpenQuote }) {
                 >
                   <div>
                     {/* Authentic Product Image */}
-                    <div className="w-full h-48 rounded-xl bg-slate-50 border border-gray-100 overflow-hidden mb-4 relative flex items-center justify-center p-3">
+                    <div className={`w-full ${product.subCategory === 'Food Additives' ? 'aspect-[1264/841]' : 'h-48'} rounded-xl bg-slate-50 border border-gray-100 overflow-hidden mb-4 relative flex items-center justify-center p-3`}>
                       <img
                         src={product.image}
                         alt={product.name}
@@ -389,12 +389,18 @@ export default function BrandPage({ brandId, onOpenQuote }) {
                       {product.name}
                     </h4>
 
-                    <div className="mt-2.5 p-2.5 rounded-lg bg-emerald-50/60 border border-emerald-100/80 text-[11px]">
-                      <span className="text-gray-500 block">Active Components:</span>
-                      <span className="font-semibold text-emerald-900 line-clamp-2">
+                    {product.subCategory === 'Food Additives' ? (
+                      <div className="mt-2 text-xs text-gray-500 font-medium">
                         {product.keyActives}
-                      </span>
-                    </div>
+                      </div>
+                    ) : (
+                      <div className="mt-2.5 p-2.5 rounded-lg bg-emerald-50/60 border border-emerald-100/80 text-[11px]">
+                        <span className="text-gray-500 block">Active Components:</span>
+                        <span className="font-semibold text-emerald-900 line-clamp-2">
+                          {product.keyActives}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import OwnerSection from './components/OwnerSection';
@@ -14,7 +14,6 @@ import PeopleWhoKnowUsBetter from './components/PeopleWhoKnowUsBetter';
 import CertificationsSection from './components/CertificationsSection';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
-import InquiryModal from './components/InquiryModal';
 import { openWhatsApp, getWhatsAppUrl } from './utils/whatsapp';
 import { MessageCircle } from 'lucide-react';
 
@@ -41,16 +40,31 @@ import { subCategoriesData } from './data/subCategories';
 
 export default function App() {
   const { currentPath, navigate } = useNavigation();
-  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
-  const [quoteModalSubject, setQuoteModalSubject] = useState('');
-
-  const handleOpenQuoteModal = (subject = '') => {
-    setQuoteModalSubject(subject);
-    setIsQuoteModalOpen(true);
-  };
 
   const handleOpenQuote = (productOrSubject = '') => {
-    handleOpenQuoteModal(productOrSubject);
+    let message = '';
+    const subject = typeof productOrSubject === 'object' && productOrSubject !== null
+      ? (productOrSubject.name || productOrSubject.title || '')
+      : (productOrSubject || '');
+
+    if (!subject) {
+      message =
+        'Hi Nature Pure Extracts! I would like to request product samples, pricing details, and Certificates of Analysis (CoA).';
+    } else if (
+      subject.toLowerCase().includes('inquiry') ||
+      subject.toLowerCase().includes('request') ||
+      subject.toLowerCase().includes('consultation') ||
+      subject.toLowerCase().includes('division') ||
+      subject.toLowerCase().includes('dossier') ||
+      subject.toLowerCase().includes('idea') ||
+      subject.toLowerCase().includes('service') ||
+      subject.toLowerCase().includes('solution')
+    ) {
+      message = `Hi Nature Pure Extracts! I would like to inquire regarding ${subject}. Could you provide technical specifications and commercial details?`;
+    } else {
+      message = `Hi Nature Pure Extracts! I am interested in ${subject}. Could you share sample availability, CoA, and pricing parameters?`;
+    }
+    openWhatsApp(message);
   };
 
   const handleExploreCatalog = () => {
@@ -82,7 +96,7 @@ export default function App() {
     if (sSlug === 'natural-flavors-and-fragrance' && (cleanPath === 'natural-flavors' || cleanPath === 'fragrance' || cleanPath === 'flavors' || cleanPath === 'flavors-and-fragrance')) {
       return true;
     }
-    if (sSlug === 'food-addictives' && cleanPath === 'food-additives') {
+    if (sSlug === 'food-additives' && (cleanPath === 'food-addictives' || cleanPath === 'food-additive' || cleanPath === 'additives')) {
       return true;
     }
     if (sSlug === 'lypopure' && cleanPath === 'lyopure') {
@@ -180,7 +194,7 @@ export default function App() {
         <HeritageTimeline />
 
         {/* 6. Our Curated Brands Showcase */}
-        <SubBrandsSection />
+        <SubBrandsSection onOpenQuote={handleOpenQuote} />
 
         {/* 7. Global Certifications & Quality Assurance (Authentic Seals + FAQ) */}
         <CertificationsSection />
@@ -217,13 +231,6 @@ export default function App() {
 
       {/* Corporate Footer */}
       <Footer onOpenQuote={handleOpenQuote} />
-
-      {/* Interactive Quotation & Sample Request Modal */}
-      <InquiryModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        prefilledProduct={quoteModalSubject}
-      />
 
       {/* Floating WhatsApp Action Button (Symbol only) */}
       <aside aria-label="Floating WhatsApp" className="fixed bottom-6 right-6 z-40 group">

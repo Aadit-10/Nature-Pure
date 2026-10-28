@@ -10,9 +10,15 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
   const [visibleCount, setVisibleCount] = useState(9);
   const [activeSectionFilter, setActiveSectionFilter] = useState('all'); // 'all' | 'flavors' | 'fragrance'
 
-  const subCategory = subCategoriesData.find((s) => s.slug === slug) || subCategoriesData[0];
+  const subCategory =
+    subCategoriesData.find((s) => s.slug === slug || (s.slug === 'food-additives' && (slug === 'food-addictives' || slug === 'food-additive'))) ||
+    subCategoriesData[0];
   const parentBrand = subBrands.find((b) => b.id === subCategory.subBrandId) || subBrands[0];
   const isDualSectionPage = subCategory.slug === 'natural-flavors-and-fragrance';
+  const isFoodAdditives =
+    subCategory.slug === 'food-additives' ||
+    subCategory.slug === 'food-addictives' ||
+    subCategory.name.toLowerCase().includes('additive');
 
   // Reset pagination & section filter when slug or search changes
   useEffect(() => {
@@ -28,7 +34,8 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
         pSub === subCatName ||
         pSub.includes(subCatName) ||
         subCatName.includes(pSub) ||
-        (isDualSectionPage && (pSub.includes('flavor') || pSub.includes('fragrance')));
+        (isDualSectionPage && (pSub.includes('flavor') || pSub.includes('fragrance'))) ||
+        (isFoodAdditives && (pSub === 'food additives' || pSub === 'food addictives'));
 
       const q = searchQuery.toLowerCase().trim();
       const matchQuery =
@@ -59,9 +66,55 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
   };
 
   // Render a reusable product card
-  const renderProductCard = (product, badgeLabel) => (
-    <div
-      key={`${product.id}-${product.name}`}
+  const renderProductCard = (product, badgeLabel) => {
+    if (isFoodAdditives) {
+      return (
+        <div
+          key={`${product.id}-${product.name}`}
+          className="group rounded-2xl bg-white border border-gray-200/90 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1"
+        >
+          <div>
+            {/* Authentic Product Slide Graphic shown prominent & uncropped like previous website */}
+            <div className="w-full aspect-[1264/841] bg-gray-50 border-b border-gray-100 overflow-hidden relative flex items-center justify-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="p-4 sm:p-5">
+              <h4 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-amber-800 transition-colors">
+                {product.name}
+              </h4>
+              <p className="text-xs text-gray-500 mt-1 font-medium">
+                {product.botanical || product.keyActives}
+              </p>
+            </div>
+          </div>
+
+          <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-3 flex items-center justify-between gap-2 border-t border-gray-100/70">
+            <span className="text-[11px] font-semibold text-emerald-700 flex items-center gap-1">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <span>FCC / Food Grade</span>
+            </span>
+            <button
+              onClick={() => onOpenQuote?.(product.name)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#25D366]/15 hover:bg-[#25D366] text-emerald-950 hover:text-white transition-all cursor-pointer border border-[#25D366]/30"
+              title={`Inquire about ${product.name} on WhatsApp`}
+            >
+              <img src="/whatsapp-icon.png" alt="WhatsApp" className="w-3.5 h-3.5 object-contain" />
+              <span>Inquire / CoA</span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <div
+        key={`${product.id}-${product.name}`}
       className="group rounded-2xl bg-white border border-gray-200/90 p-5 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1"
     >
       <div>
@@ -112,6 +165,7 @@ export default function SubCategoryPage({ slug, onOpenQuote }) {
       </div>
     </div>
   );
+};
 
   return (
     <div className="pt-28 pb-24 bg-[#fafbfc] min-h-screen">

@@ -305,6 +305,7 @@ export default function Navbar({ onOpenQuote }) {
                                 {currentSubCats.map((sub) => {
                                   const isThisSubCurrent =
                                     cleanPath === sub.slug.toLowerCase() ||
+                                    (sub.slug === 'food-additives' && (cleanPath === 'food-addictives' || cleanPath === 'food-additive' || cleanPath === 'additives')) ||
                                     (sub.slug === 'natural-flavors-and-fragrance' &&
                                       ['natural-flavors', 'fragrance', 'flavors', 'flavors-and-fragrance'].includes(cleanPath));
                                   return (
@@ -621,6 +622,7 @@ export default function Navbar({ onOpenQuote }) {
                               .map((sub) => {
                                 const isSubActive =
                                   cleanPath === sub.slug.toLowerCase() ||
+                                  (sub.slug === 'food-additives' && (cleanPath === 'food-addictives' || cleanPath === 'food-additive' || cleanPath === 'additives')) ||
                                   (sub.slug === 'natural-flavors-and-fragrance' &&
                                     ['natural-flavors', 'fragrance', 'flavors', 'flavors-and-fragrance'].includes(cleanPath));
                                 return (

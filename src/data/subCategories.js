@@ -127,7 +127,7 @@ export const subCategoriesData = [
     originalPage: 'lakes-and-blends.html'
   },
   {
-    slug: 'food-addictives',
+    slug: 'food-additives',
     name: 'Food Additives',
     subBrandId: 'natures-alchemy',
     subBrandName: "Nature's Alchemy (Additives)",
