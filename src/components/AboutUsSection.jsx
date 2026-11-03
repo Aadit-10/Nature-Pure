@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
-import { Sparkles, Factory, Globe, Leaf, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function AboutUsSection() {
   const { navigate } = useNavigation();

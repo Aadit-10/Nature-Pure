@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { subCategoriesData } from '../data/subCategories';
 import { subBrands, productsList } from '../data/catalog';
 import { useNavigation } from '../context/NavigationContext';
-import { ArrowLeft, ArrowRight, CheckCircle2, FileText, Search, Sparkles, Droplet, Layers } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Search, Droplet, Layers } from 'lucide-react';
 
 export default function SubCategoryPage({ slug, onOpenQuote }) {
   const { navigate } = useNavigation();

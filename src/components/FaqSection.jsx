@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { faqs } from '../data/catalog';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export default function FaqSection() {
   const [openFaq, setOpenFaq] = useState(0);

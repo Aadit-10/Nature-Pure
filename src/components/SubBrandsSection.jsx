@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { subBrands } from '../data/catalog';
 import { useNavigation } from '../context/NavigationContext';
-import { ArrowRight, Sparkles, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function SubBrandsSection({ onOpenQuote }) {
   const { navigate } = useNavigation();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Factory, Leaf, CheckCircle2, ShieldCheck, Droplet } from 'lucide-react';
+import { ArrowRight, Factory, Leaf, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function Hero({ onOpenQuote, onExploreCatalog, onExploreTech }) {
   return (

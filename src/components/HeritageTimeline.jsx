@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { heritageTimeline } from '../data/catalog';
-import { History, ChevronLeft, ChevronRight, Clock, Award, CheckCircle2, Sparkles } from 'lucide-react';
+import { History, ChevronLeft, ChevronRight, CheckCircle2 } from 'lucide-react';
 
 export default function HeritageTimeline() {
   const scrollRef = useRef(null);

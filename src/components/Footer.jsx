@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, MessageSquare, ArrowUp } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
 
 export default function Footer({ onOpenQuote }) {
@@ -17,9 +17,9 @@ export default function Footer({ onOpenQuote }) {
           <div className="lg:col-span-2">
             <div className="mb-5 inline-block bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-sm">
               <img
-                src="/wp-content/uploads/2026/05/ChatGPT_Image_May_5__2026__02_29_16_PM-removebg-preview.png"
+                src="/wp-content/uploads/2026/05/nature-pure-logo.png"
                 alt="Nature Pure Extracts"
-                className="h-10 w-auto object-contain"
+                className="h-11 sm:h-12 w-auto object-contain"
               />
             </div>
 

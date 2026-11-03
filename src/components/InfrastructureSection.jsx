@@ -1,5 +1,5 @@
 import React from 'react';
-import { Factory, Snowflake, Microscope, Gauge, Leaf } from 'lucide-react';
+import { Snowflake, Microscope, Gauge, Leaf } from 'lucide-react';
 
 export default function InfrastructureSection() {
   const facilities = [

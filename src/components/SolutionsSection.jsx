@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layers, Factory, FlaskConical, PackageCheck, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Layers, Factory, FlaskConical, PackageCheck, CheckCircle2 } from 'lucide-react';
 
 export default function SolutionsSection({ onOpenQuote }) {
   const solutions = [

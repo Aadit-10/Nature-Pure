@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { productsList } from '../data/catalog';
-import { Search, Filter, Sparkles, Droplet, ArrowRight, CheckCircle2, FileText, ChevronDown } from 'lucide-react';
+import { Search, Filter, Droplet, CheckCircle2, ChevronDown } from 'lucide-react';
 
 export default function ProductCatalog({ selectedSubBrand, onOpenQuote, initialSearch = '' }) {
   const [searchQuery, setSearchQuery] = useState(initialSearch);

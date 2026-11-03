@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import { subBrands } from '../data/catalog';
 import { subCategoriesData } from '../data/subCategories';
 import { useNavigation } from '../context/NavigationContext';
@@ -120,9 +120,9 @@ export default function Navbar({ onOpenQuote }) {
             title="Nature Pure Extracts - Home"
           >
             <img
-              src="/wp-content/uploads/2026/05/ChatGPT_Image_May_5__2026__02_29_16_PM-removebg-preview.png"
+              src="/wp-content/uploads/2026/05/nature-pure-logo.png"
               alt="Nature Pure Extracts"
-              className="h-9 sm:h-11 w-auto object-contain max-w-[190px] sm:max-w-[230px]"
+              className="h-10 sm:h-12 w-auto object-contain max-w-[210px] sm:max-w-[250px]"
             />
           </button>
 

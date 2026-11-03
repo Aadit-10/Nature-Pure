@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigation } from '../context/NavigationContext';
-import { HeartHandshake, Eye, Target, Quote, ArrowRight, CheckCircle2, Shield, Sparkles } from 'lucide-react';
+import { Eye, Target, Quote, ArrowRight } from 'lucide-react';
 
 export default function ManagementSection() {
   const { navigate } = useNavigation();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Clock, ExternalLink } from 'lucide-react';
+import { Phone, Mail, Clock, ExternalLink } from 'lucide-react';
 
 export default function MapSection() {
   return (
