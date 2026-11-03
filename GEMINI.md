@@ -40,3 +40,4 @@
 - Avoid reading files or running broad scans unless strictly required.
 - Keep answers concise; do not re-print entire files when showing edits.
 - Before editing, confirm file paths and targeted symbols.
+- **Git Push Policy:** NEVER run `git push` under any circumstances unless explicit permission is granted by the user. Local commits may be made when requested, but remote pushes strictly require direct approval.

@@ -19,6 +19,14 @@
   }
 }
 
+.font-brand-serif {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-brand-sans {
+  font-family: 'Outfit', 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 /* Custom Botanical Mesh Backgrounds */
 .bg-botanical-mesh {
   background-color: #0b2418;

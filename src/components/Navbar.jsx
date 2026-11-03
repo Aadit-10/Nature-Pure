@@ -3,6 +3,7 @@ import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import { subBrands } from '../data/catalog';
 import { subCategoriesData } from '../data/subCategories';
 import { useNavigation } from '../context/NavigationContext';
+import BrandLogo from './BrandLogo';
 
 export default function Navbar({ onOpenQuote }) {
   const { currentPath, navigate } = useNavigation();
@@ -119,11 +120,7 @@ export default function Navbar({ onOpenQuote }) {
             }`}
             title="Nature Pure Extracts - Home"
           >
-            <img
-              src="/wp-content/uploads/2026/05/nature-pure-logo.png"
-              alt="Nature Pure Extracts"
-              className="h-10 sm:h-12 w-auto object-contain max-w-[210px] sm:max-w-[250px]"
-            />
+            <BrandLogo />
           </button>
 
           {/* Desktop Navigation Hierarchy */}

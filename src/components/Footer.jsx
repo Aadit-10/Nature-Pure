@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
 import { useNavigation } from '../context/NavigationContext';
+import BrandLogo from './BrandLogo';
 
 export default function Footer({ onOpenQuote }) {
   const { navigate } = useNavigation();
@@ -15,12 +16,8 @@ export default function Footer({ onOpenQuote }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-emerald-900/40">
           {/* Col 1: Brand & Identity with official logo */}
           <div className="lg:col-span-2">
-            <div className="mb-5 inline-block bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-2xl shadow-sm">
-              <img
-                src="/wp-content/uploads/2026/05/nature-pure-logo.png"
-                alt="Nature Pure Extracts"
-                className="h-11 sm:h-12 w-auto object-contain"
-              />
+            <div className="mb-5 inline-block bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm">
+              <BrandLogo size="lg" />
             </div>
 
             <p className="text-xs text-gray-300 leading-relaxed max-w-sm mb-6">
