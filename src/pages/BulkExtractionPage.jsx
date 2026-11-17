@@ -70,7 +70,7 @@ export default function BulkExtractionPage({ onOpenQuote }) {
           </div>
           <div className="p-6 rounded-2xl bg-white border border-gray-200 shadow-xs">
             <ShieldCheck className="w-8 h-8 text-emerald-700 mb-3" />
-            <h3 className="font-bold text-lg text-gray-900 mb-2">0.00 ppm Solvent Purity</h3>
+            <h3 className="font-bold text-lg text-gray-900 mb-2">0.00 ppm Solvent Impurity</h3>
             <p className="text-xs text-gray-600 leading-relaxed">
               Pure carbon dioxide completely dissipates into gas upon pressure release, leaving absolute zero toxic or petrochemical residue.
             </p>

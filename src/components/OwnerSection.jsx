@@ -14,7 +14,7 @@ export default function OwnerSection() {
             About the Owners: A Legacy of Scientific Mastery
           </h2>
           <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
-            Founded by chemical engineering pioneer <strong className="text-emerald-900">Mr. N. T. Kuruvilla</strong>, rooted in pharmaceutical discipline and pure botanical innovation since 1974.
+            Founded by food chemical engineering pioneer <strong className="text-emerald-900">Mr. N. T. Kuruvilla</strong>, rooted in pharmaceutical discipline and pure botanical innovation since 1974.
           </p>
         </div>
 

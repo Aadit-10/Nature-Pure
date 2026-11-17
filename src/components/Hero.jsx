@@ -66,7 +66,7 @@ export default function Hero({ onOpenQuote, onExploreCatalog, onExploreTech }) {
           <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md">
             <div className="flex items-center gap-2 text-emerald-400 mb-1">
               <Leaf className="w-4 h-4" />
-              <span className="text-xs uppercase tracking-wider font-semibold text-emerald-200">Solvent Purity</span>
+              <span className="text-xs uppercase tracking-wider font-semibold text-emerald-200">Solvent Impurity</span>
             </div>
             <div className="text-2xl sm:text-3xl font-extrabold text-white">0.00 ppm</div>
             <p className="text-xs text-emerald-100/70 mt-1">100% Zero Chemical Residue</p>
