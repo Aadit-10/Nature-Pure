@@ -94,7 +94,7 @@ export default function HeritageTimeline() {
               Our Journey of Botanical Excellence
             </h2>
             <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-2xl">
-              Scroll sideways through five decades of chemical engineering innovation, process purity, and global expansion.
+              Scroll sideways through five decades of food chemical engineering innovation, process purity, and global expansion.
             </p>
           </div>
 

@@ -81,7 +81,7 @@ export default function AboutUsPage({ onOpenQuote }) {
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Our Story →</h3>
-              <p className="text-xs text-gray-500 mt-2">Discover our journey since 1974 founded by chemical engineer Mr. N. T. Kuruvilla.</p>
+              <p className="text-xs text-gray-500 mt-2">Discover our journey since 1974 founded by food chemical engineering pioneer Mr. N. T. Kuruvilla.</p>
             </div>
             <div
               onClick={() => navigate('/infrastructure')}
@@ -102,7 +102,7 @@ export default function AboutUsPage({ onOpenQuote }) {
               className="p-6 rounded-2xl bg-white border border-gray-200/90 hover:border-emerald-600 hover:shadow-lg transition-all cursor-pointer group"
             >
               <h3 className="text-lg font-bold text-gray-900 group-hover:text-emerald-800">Leadership →</h3>
-              <p className="text-xs text-gray-500 mt-2">Guided by experienced chemical engineers and industrial innovators.</p>
+              <p className="text-xs text-gray-500 mt-2">Guided by experienced food chemical engineers and industrial innovators.</p>
             </div>
           </div>
         </div>

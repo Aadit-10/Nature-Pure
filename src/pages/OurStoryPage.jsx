@@ -29,7 +29,7 @@ export default function OurStoryPage({ onOpenQuote }) {
             Our Story: Rooted in Scientific Excellence
           </h1>
           <p className="mt-3 text-base sm:text-lg text-emerald-800 font-medium">
-            From chemical engineering pioneering in 1974 to global leadership in supercritical CO₂ extraction.
+            From food chemical engineering pioneering in 1974 to global leadership in supercritical CO₂ extraction.
           </p>
 
           {/* Founder Feature */}
@@ -45,16 +45,16 @@ export default function OurStoryPage({ onOpenQuote }) {
               </div>
               <div className="p-4 bg-emerald-950 text-white text-xs">
                 <span className="font-bold text-amber-300 block text-sm">Mr. N. T. Kuruvilla</span>
-                <span className="text-emerald-200">Founder &amp; Chemical Engineer (UDCT)</span>
+                <span className="text-emerald-200">Founder &amp; Food Chemical Engineering (UDCT)</span>
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
               <p>
-                The journey began in <strong>1974</strong>, when <strong>Mr. N. T. Kuruvilla</strong>, a distinguished Chemical Engineering graduate from UDCT (now ICT Mumbai), established his first entrepreneurial venture after an impactful early career with Pfizer. This formative exposure to pharmaceutical-grade manufacturing standards laid the cornerstone of our company philosophy: precision, uncompromising purity, and process integrity.
+                The journey began in <strong>1974</strong>, when <strong>Mr. N. T. Kuruvilla</strong>, a distinguished Food Chemical Engineering graduate from UDCT (now ICT Mumbai), established his first entrepreneurial venture after an impactful early career with Pfizer. This formative exposure to pharmaceutical-grade manufacturing standards laid the cornerstone of our company philosophy: precision, uncompromising purity, and process integrity.
               </p>
               <p>
-                At a time when stability defined conventional success, Mr. Kuruvilla pursued a forward-looking path—harnessing chemical engineering science to transform Indian botanical riches into global standardized ingredients.
+                At a time when stability defined conventional success, Mr. Kuruvilla pursued a forward-looking path—harnessing food chemical engineering science to transform Indian botanical riches into global standardized ingredients.
               </p>
               <p className="text-emerald-900 font-semibold italic border-l-4 border-emerald-600 pl-4 py-1">
                 "Our journey is guided by three enduring pillars: Nature. Innovation. Humanity."

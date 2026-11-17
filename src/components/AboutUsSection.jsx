@@ -122,7 +122,7 @@ export default function AboutUsSection() {
           <div className="p-6 rounded-2xl bg-white border border-gray-200/90 text-center shadow-xs">
             <div className="text-3xl sm:text-4xl font-extrabold text-emerald-800">50+</div>
             <div className="text-xs font-bold text-gray-800 mt-1 uppercase tracking-wider">Years of Heritage</div>
-            <p className="text-[11px] text-gray-500 mt-1">Chemical engineering pedigree since 1974</p>
+            <p className="text-[11px] text-gray-500 mt-1">Food chemical engineering pedigree since 1974</p>
           </div>
 
           <div className="p-6 rounded-2xl bg-white border border-gray-200/90 text-center shadow-xs">

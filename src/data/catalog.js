@@ -3047,7 +3047,7 @@ export const heritageTimeline = [
   {
     year: '1973',
     title: 'The Foundation at Pfizer',
-    description: 'N. T. Kuruvilla, a Chemical Engineering graduate from UDCT Mumbai, initiates his professional journey with Pfizer, instilling rigorous pharmaceutical quality benchmarks and process discipline.',
+    description: 'N. T. Kuruvilla, a Food Chemical Engineering graduate from UDCT Mumbai, initiates his professional journey with Pfizer, instilling rigorous pharmaceutical quality benchmarks and process discipline.',
     badge: 'Pharma Precision'
   },
   {
@@ -3086,9 +3086,9 @@ export const leadershipTeam = [
   {
     name: 'N. T. Kuruvilla',
     role: 'Founder & Visionary Pioneer',
-    credentials: 'Chemical Engineer (UDCT) • Former Pfizer Professional',
+    credentials: 'Food Chemical Engineering (UDCT) • Former Pfizer Professional',
     image: '/wp-content/uploads/2026/05/WhatsApp-Image-2026-04-13-at-12.05.57-PM-967x1024.jpeg',
-    bio: 'With over 50 years of chemical engineering and ingredient science mastery, N. T. Kuruvilla laid the foundation of uncompromised purity, rigorous process validation, and integrity that guides Nature Pure.',
+    bio: 'With over 50 years of food chemical engineering and ingredient science mastery, N. T. Kuruvilla laid the foundation of uncompromised purity, rigorous process validation, and integrity that guides Nature Pure.',
     quote: 'True purity requires no solvents, no shortcuts, and no compromises.'
   },
   {

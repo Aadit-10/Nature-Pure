@@ -35,7 +35,7 @@ export default function OwnerSection() {
                 <div className="p-4 bg-emerald-950 text-white text-center">
                   <h3 className="font-bold text-amber-300 text-base sm:text-lg">Mr. N. T. Kuruvilla</h3>
                   <p className="text-xs text-emerald-200 font-medium mt-0.5">
-                    Founder &amp; Owner • Chemical Engineer (UDCT)
+                    Founder &amp; Owner • Food Chemical Engineer (UDCT)
                   </p>
                   <p className="text-[11px] text-emerald-300/80 mt-1">
                     Former Pfizer Professional • Over 50 Years of Industry Stewardship
@@ -56,7 +56,7 @@ export default function OwnerSection() {
               </h3>
 
               <p className="text-sm sm:text-base leading-relaxed text-gray-600">
-                The journey of Nature Pure Extracts began in <strong>1974</strong> when <strong>Mr. N. T. Kuruvilla</strong>, a distinguished chemical engineering graduate from the prestigious University Department of Chemical Technology (UDCT, now ICT Mumbai), established his first manufacturing enterprise following an impactful formative tenure at <strong>Pfizer</strong>.
+                The journey of Nature Pure Extracts began in <strong>1974</strong> when <strong>Mr. N. T. Kuruvilla</strong>, a distinguished food chemical engineering graduate from the prestigious University Department of Chemical Technology (UDCT, now ICT Mumbai), established his first manufacturing enterprise following an impactful formative tenure at <strong>Pfizer</strong>.
               </p>
 
               <p className="text-sm sm:text-base leading-relaxed text-gray-600">

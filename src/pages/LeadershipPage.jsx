@@ -29,10 +29,10 @@ export default function LeadershipPage({ onOpenQuote }) {
             Scientific Stewardship &amp; Strategic Vision
           </h1>
           <p className="mt-4 text-base sm:text-lg text-emerald-800 font-medium">
-            Guided by chemical engineers and experienced industry innovators.
+            Guided by food chemical engineers and experienced industry innovators.
           </p>
           <p className="mt-4 text-sm sm:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Our leadership team unites chemical engineering rigor, deep pharmaceutical standards, and global commercial strategy to steer Nature Pure’s global extraction leadership.
+            Our leadership team unites food chemical engineering rigor, deep pharmaceutical standards, and global commercial strategy to steer Nature Pure’s global extraction leadership.
           </p>
         </div>
 

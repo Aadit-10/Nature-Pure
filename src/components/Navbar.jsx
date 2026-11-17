@@ -179,7 +179,7 @@ export default function Navbar({ onOpenQuote }) {
                       className={getDropdownItemClass('/leadership')}
                     >
                       <span className="font-semibold text-gray-900">Leadership</span>
-                      <span className="text-xs text-gray-500">Chemical engineers &amp; innovators</span>
+                      <span className="text-xs text-gray-500">Food chemical engineers &amp; innovators</span>
                     </button>
                   </div>
                 </div>
